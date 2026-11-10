@@ -8,12 +8,22 @@ The public website for **Spark VertoByte** and its *Grow Slow* series: a static,
 | :--- | :--- |
 | `docs/` | The published site: `index.html` (CSS and JavaScript inline), `assets/` (images, logos), `CNAME`, `.nojekyll`. GitHub Pages serves this folder. |
 | `tools/site-src/` | The generator: `build.py` (data and page), `styles.css`, `app.js`. |
+| `wrangler.jsonc` | Tells Cloudflare's `npx wrangler deploy` to publish `docs/` as the Worker `vertobyte-web`. The name must match the Worker in the dashboard. |
 
 Everything else (the content plan, account setup, channel artwork and tools) is kept privately with the production repository, not here.
 
 ## Host
 
-*Settings → Pages → Deploy from a branch → `production` → `/docs`*, with the custom domain `vertobyte.com` and *Enforce HTTPS* on. All paths are relative, so the site also works at `username.github.io/VertoByte-Web/`.
+`vertobyte.com`, `www.vertobyte.com` and `spark.vertobyte.com` are served by the Cloudflare Worker **`vertobyte-web`**, which holds a copy of `docs/` (see `wrangler.jsonc`). Pushing to GitHub updates the site only through Cloudflare's Git build: *Workers & Pages → vertobyte-web → Settings → Builds*, repository `VertoByte-Web`, production branch `production`, deploy command `npx wrangler deploy`. If that page says the project is disconnected from Git, no push reaches the site until it is reconnected (*Manage*, or *Disconnect* and connect the same repository again).
+
+To deploy by hand from this folder (it signs in through your browser the first time):
+
+```bash
+npx wrangler login
+npx wrangler deploy
+```
+
+GitHub Pages (*Settings → Pages → `production` → `/docs`*) also serves the same folder, but the custom domain does not go through it. All paths are relative, so the site also works at `username.github.io/VertoByte-Web/`.
 
 ## Live release status
 

@@ -1,0 +1,9 @@
+{
+  // Cloudflare Worker "vertobyte-web" serves vertobyte.com from the published docs/ folder.
+  // The name must match the Worker in the Cloudflare dashboard. Cloudflare's Git build runs `npx wrangler deploy`.
+  "name": "vertobyte-web",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./docs"
+  }
+}
