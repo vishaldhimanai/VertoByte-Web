@@ -8,6 +8,7 @@ Thumbnails in docs/assets/thumbs/ are first-shot landscape artwork, one per epis
 named <code>-<slug>.webp (for example s01e01-one-small-step.webp).
 """
 import glob
+import json
 import os
 from datetime import date, timedelta
 from html import escape as esc
@@ -60,6 +61,9 @@ IG_EN = "https://www.instagram.com/SparkVertoByteEnglish"
 # FILM_LINKS = {1: "https://www.youtube.com/watch?v=...", "complete": "https://www.youtube.com/watch?v=..."}
 EPISODE_LINKS = {}
 FILM_LINKS = {}
+# Release slots that are NOT going out at their planned time. The live status panel shows these as
+# "coming soon" instead of "out now". "CODE:lang" -> note shown on the card. Delete the entry once the upload is live.
+DELAYED = {"S01E01:hi": "Hindi edition coming soon"}
 
 
 def ep_links(code):
@@ -104,6 +108,51 @@ for i in range(PROMOS):
     events.setdefault(week7 + timedelta(days=i), []).append(dict(kind="promo", n=i + 1))
 events.setdefault(FINALE, []).append(dict(kind="film", season=0, label="The complete series", runtime="27:43", img="assets/film/complete.webp"))
 
+# ---- release slots for the live status panel -----------------------------------
+# Every upload with its planned time in IST. The page reads these in the visitor's browser and compares them
+# with the clock, so "out now / today / coming up" is always current without rebuilding.
+def times_for(i, week1):
+    """(HH:MM IST, languages) slots for episode index i (0 = E01), from the plan's weekly rhythm."""
+    if i <= 4:  # Mon to Fri: Hindi 1 PM, English 7 PM
+        if week1 and i == 2:  # Wed 11 Nov double premiere: E03 goes out later than E02
+            return [("19:00", ["hi"]), ("21:00", ["en"])]
+        return [("13:00", ["hi"]), ("19:00", ["en"])]
+    if i in (5, 6):  # Saturday E06 and Sunday E07: both languages at 1 PM
+        return [("13:00", ["hi", "en"])]
+    return [("19:00", ["hi", "en"])]  # Sunday E08, the season finale: both languages at 7 PM
+
+SLOTS = []
+
+def add_slots(day, times, **kw):
+    for hhmm, langs in times:
+        t = f"{day.isoformat()}T{hhmm}:00+05:30"
+        held = [l for l in langs if DELAYED.get(f"{kw['c']}:{l}")]
+        ok = [l for l in langs if l not in held]
+        if ok:
+            SLOTS.append(dict(kw, t=t, l=ok))
+        for l in held:
+            SLOTS.append(dict(kw, t=t, l=[l], d=DELAYED[f"{kw['c']}:{l}"]))
+
+def ep_url(code, lang):
+    return EPISODE_LINKS.get(code, {}).get(lang) or (YT_EN if lang == "en" else YT_HI) + "/shorts"
+
+for s in SEASONS:
+    for i, name in enumerate(s["eps"]):
+        code = f"S{s['n']:02d}E{i + 1:02d}"
+        times = [(h, [l for l in ls if l == "en" or s["n"] <= 3]) for h, ls in times_for(i, s["n"] == 1)]  # Hindi S04 to S06 not recorded yet
+        add_slots(s["dates"][i], [(h, ls) for h, ls in times if ls], k="short", c=code, n=name, s=s["n"], i=thumb(code),
+                  u={"en": ep_url(code, "en"), "hi": ep_url(code, "hi")})
+    add_slots(s["film"], [("19:00", ["en"])], k="film", c=f"S{s['n']:02d}FILM", n=f"Season {s['n']} film", x=f"{s['name']} · {s['runtime']}",
+              s=s["n"], i=f"assets/film/s0{s['n']}.webp", u={"en": FILM_LINKS.get(s["n"]) or YT_EN})
+for n in range(1, PROMOS + 1):
+    day = week7 + timedelta(days=n - 1)
+    times = [("13:00", ["hi", "en"])] if n == 6 else [("13:00", ["hi"]), ("19:00", ["en"])]
+    add_slots(day, times, k="promo", c=f"PROMO{n}", n=f"Countdown Short {n} of {PROMOS}", s=0, i="assets/film/complete.webp",
+              u={"en": YT_EN + "/shorts", "hi": YT_HI + "/shorts"})
+add_slots(FINALE, [("19:00", ["en"])], k="film", c="COMPLETE", n="The complete series", x="27:43 · English", s=0,
+          i="assets/film/complete.webp", u={"en": FILM_LINKS.get("complete") or YT_EN})
+SLOTS.sort(key=lambda s: (s["t"], {"short": 0, "promo": 0, "film": 1}[s["k"]], s["c"]))
+
 # ---- html helpers --------------------------------------------------------
 ICONS = {
     "shorts": '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 9.5l3 2-3 2z" fill="currentColor"/></svg>',
@@ -147,7 +196,7 @@ def calendar_html():
             classes = "day" + (" has-film" if any(e["kind"] == "film" for e in evs) else "") + (" is-empty" if not evs else "")
             month = f" {d:%b}" if (d.day == 1 or i == 0 or d == MONDAY0) else f" {d:%b}"
             body = "".join(ev_html(e) for e in sorted(evs, key=lambda e: {"short": 0, "promo": 0, "film": 1}[e["kind"]])) if evs else '<span class="empty-note">Before launch</span>'
-            out.append(f'<div class="{classes}"><div class="date"><span class="wd">{d:%a}</span><b>{d.day}</b><span>{d:%b}</span></div><div class="evs">{body}</div></div>')
+            out.append(f'<div class="{classes}" data-date="{d.isoformat()}"><div class="date"><span class="wd">{d:%a}</span><b>{d.day}</b><span>{d:%b}</span></div><div class="evs">{body}</div></div>')
         out.append("</div>")
     return "\n".join(out)
 
@@ -164,7 +213,7 @@ def seasons_html():
         for i, name in enumerate(s["eps"]):
             code = f"S{s['n']:02d}E{i + 1:02d}"
             cards.append(
-                f'<article class="ep"><img src="{thumb(code)}" alt="Scene from {esc(name)}" loading="lazy" width="720" height="405">'
+                f'<article class="ep" data-code="{code}"><img src="{thumb(code)}" alt="Scene from {esc(name)}" loading="lazy" width="720" height="405">'
                 f'<div class="body"><div class="code">{code}</div><h4>{esc(name)}</h4>'
                 f'<div class="when">{fmt(s["dates"][i])} · Hindi and English</div>{ep_links(code)}</div></article>')
         hindi = '<p class="note">Hindi editions of this season follow once their recordings are finished.</p>' if s["n"] >= 4 else ""
@@ -225,6 +274,7 @@ def page():
         for p, n, h, w, u, sub in watch)
     faq_html = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in FAQ)
     last_sun = MONDAY0 + timedelta(days=7 * 7 - 1)
+    SLOTS_JSON = json.dumps(SLOTS, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -244,7 +294,7 @@ def page():
 <header class="site-header"><div class="wrap">
   <a class="brand" href="#top" aria-label="Spark VertoByte, home">{logo_picture()}</a>
   <nav class="nav" aria-label="Sections">
-    <a href="#plan">The plan</a><a href="#rhythm">A week</a><a href="#seasons">Seasons</a><a href="#calendar">Calendar</a><a href="#finale">Finale</a><a href="#watch">Where to watch</a><a href="#faq">FAQ</a>
+    <a href="#today">Today</a><a href="#plan">The plan</a><a href="#rhythm">A week</a><a href="#seasons">Seasons</a><a href="#calendar">Calendar</a><a href="#finale">Finale</a><a href="#watch">Where to watch</a><a href="#faq">FAQ</a>
   </nav>
 </div></header>
 
@@ -264,6 +314,14 @@ def page():
   <li><b>27:43</b><span>complete film on {fmt(FINALE)}</span></li>
   <li><b>7</b><span>weeks, {fmt(MONDAY0 + timedelta(days=1))} to {fmt(last_sun)}</span></li>
 </ul></div></div>
+
+<section class="block live" id="today" aria-labelledby="live-title"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Live from the schedule</span><h2 id="live-title">Today on Grow Slow</h2>
+  <p>What is out, what goes out today and what comes next. It follows the release plan in Indian time and updates itself, so you never have to count days.</p></div>
+  <div class="live-fallback">This section follows the clock and needs JavaScript. The full plan is in the <a href="#calendar">release calendar</a> below.</div>
+  <div class="live-app pre" id="live-app"></div>
+  <p class="fineprint live-note">Status follows the planned schedule in Indian Standard Time (IST). The channels always show what has really been uploaded.</p>
+</div></section>
 
 <section class="block" id="plan"><div class="wrap">
   <div class="section-head"><span class="eyebrow">The plan at a glance</span><h2>Three ways to watch, one story</h2>
@@ -325,6 +383,7 @@ def page():
   <ul><li>YouTube · <a href="{YT_HI}" target="_blank" rel="noopener">@SparkVertoByte</a> · <a href="{YT_EN}" target="_blank" rel="noopener">@SparkVertoByteEnglish</a></li><li>Instagram · <a href="{IG_HI}" target="_blank" rel="noopener">@SparkVertoByte</a> · <a href="{IG_EN}" target="_blank" rel="noopener">@SparkVertoByteEnglish</a></li><li>Hindi and English · AI-generated pictures and voice</li></ul>
   <p class="legal">© 2026 VertoByte. This page shows the planned release schedule; dates and times may change.</p>
 </div></footer>
+<script type="application/json" id="slots-data">{SLOTS_JSON}</script>
 <script>
 {JS}
 </script>
