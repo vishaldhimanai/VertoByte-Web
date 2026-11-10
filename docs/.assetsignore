@@ -1,0 +1,3 @@
+# Files Wrangler must not upload with the site (gitignore syntax).
+.DS_Store
+**/.DS_Store

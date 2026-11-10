@@ -9,6 +9,7 @@ The public website for **Spark VertoByte** and its *Grow Slow* series: a static,
 | `docs/` | The published site: `index.html` (CSS and JavaScript inline), `assets/` (images, logos), `CNAME`, `.nojekyll`. GitHub Pages serves this folder. |
 | `tools/site-src/` | The generator: `build.py` (data and page), `styles.css`, `app.js`. |
 | `wrangler.jsonc` | Tells Cloudflare's `npx wrangler deploy` to publish `docs/` as the Worker `vertobyte-web`. The name must match the Worker in the dashboard. |
+| `docs/.assetsignore` | Keeps macOS `.DS_Store` files out of the Worker upload. |
 
 Everything else (the content plan, account setup, channel artwork and tools) is kept privately with the production repository, not here.
 
