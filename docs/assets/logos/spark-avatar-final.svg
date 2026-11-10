@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Spark avatar</title>
+  <desc id="desc">Amber V with a faceted ember. All lettering is outlined. Transparent background except for the circular avatar.</desc>
+  <path fill="#0A0D14" d="M256 128C256 198.692 198.692 256 128 256C57.308 256 0 198.692 0 128C0 57.308 57.308 0 128 0C198.692 0 256 57.308 256 128Z"/>
+  <path fill="#FFB703" d="M73.4 60.8L140.6 199.4L115.4 199.4L48.2 60.8Z"/>
+  <path fill="#F5820A" d="M140.6 199.4L207.8 60.8L182.6 60.8L115.4 199.4Z"/>
+  <path fill="#FFD66B" d="M140.6 73.4L161.6 56.6L182.6 73.4L161.6 90.2Z"/>
+  <path fill="#FFB703" d="M140.6 73.4L161.6 90.2L161.6 115.4L140.6 98.6Z"/>
+  <path fill="#E86309" d="M182.6 73.4L161.6 90.2L161.6 115.4L182.6 98.6Z"/>
+</svg>

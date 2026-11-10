@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grow Slow: the release plan | Spark VertoByte</title>
+<meta name="description" content="48 short animated stories in Hindi and English, six season films and one 27-minute finale, released from 10 November 2026. See the full plan.">
+<meta name="theme-color" content="#163a2d">
+<meta property="og:title" content="Grow Slow: the release plan">
+<meta property="og:description" content="Little stories about big habits. 48 episodes, six season films and one 27-minute finale.">
+<link rel="icon" href="assets/logos/spark-mark-final.svg" type="image/svg+xml">
+<style>
+/* Grow Slow release-plan site. Static, no dependencies. */
+:root {
+  --bg: #fbf7ef;
+  --surface: #ffffff;
+  --surface-2: #f3ecdd;
+  --ink: #15231e;
+  --muted: #56655d;
+  --line: rgba(21, 35, 30, 0.12);
+  --forest: #163a2d;
+  --forest-2: #1f4d3b;
+  --amber: #f59e0b;
+  --ember: #ff5400;
+  --amber-ink: #a65f00;
+  --cream: #fbf1dc;
+  --radius: 16px;
+  --shadow: 0 1px 2px rgba(20, 30, 25, 0.06), 0 10px 28px rgba(20, 30, 25, 0.08);
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Noto Sans Devanagari", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1612;
+    --surface: #14211b;
+    --surface-2: #1a2b23;
+    --ink: #f2ecdd;
+    --muted: #a9b7af;
+    --line: rgba(242, 236, 221, 0.14);
+    --amber-ink: #fbbf4a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.35);
+  }
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.12; letter-spacing: -0.01em; margin: 0; }
+p { margin: 0; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(12px);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap { display: flex; align-items: center; gap: 24px; min-height: 64px; }
+.brand { display: flex; align-items: center; text-decoration: none; flex: none; }
+.brand img { height: 34px; width: auto; }
+.nav { display: flex; gap: 4px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  text-decoration: none; font-size: 0.9rem; font-weight: 500; color: var(--muted);
+  padding: 8px 12px; border-radius: 999px; white-space: nowrap;
+}
+.nav a:hover { color: var(--ink); background: var(--surface-2); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; color: var(--cream); isolation: isolate;
+  background:
+    linear-gradient(180deg, rgba(7, 20, 14, 0.50) 0%, rgba(7, 20, 14, 0.40) 35%, rgba(7, 20, 14, 0.86) 100%),
+    url("assets/hero.webp") center 38% / cover no-repeat;
+  background-color: var(--forest);
+  padding: clamp(72px, 14vw, 156px) 0 clamp(88px, 12vw, 132px);
+}
+.hero .eyebrow { color: #ffd479; }
+.hero h1 {
+  font-size: clamp(3.4rem, 11vw, 7.4rem); font-weight: 700; letter-spacing: -0.03em;
+  margin: 14px 0 18px; text-wrap: balance;
+}
+.hero .tagline { font: italic 600 clamp(1.2rem, 3vw, 1.7rem)/1.3 var(--serif); }
+.hero .tagline-hi { font: 500 clamp(1.05rem, 2.4vw, 1.3rem)/1.5 var(--sans); opacity: 0.9; margin-top: 6px; }
+.hero .lede { max-width: 56ch; font-size: clamp(1.02rem, 2vw, 1.2rem); margin-top: 22px; opacity: 0.94; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600;
+  padding: 13px 22px; border-radius: 999px; border: 1px solid transparent; font-size: 0.97rem;
+}
+.btn-primary { background: linear-gradient(135deg, var(--amber), var(--ember)); color: #201000; }
+.btn-primary:hover { filter: brightness(1.07); }
+.btn-ghost { border-color: rgba(251, 241, 220, 0.55); color: var(--cream); }
+.btn-ghost:hover { background: rgba(251, 241, 220, 0.12); }
+
+.eyebrow {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber-ink);
+}
+
+/* ---------- Stats strip ---------- */
+.stats {
+  position: relative; z-index: 2; margin-top: -56px;
+}
+.stats ul {
+  list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.stats li { padding: 22px 24px; border-left: 1px solid var(--line); }
+.stats li:first-child { border-left: 0; }
+.stats b { display: block; font: 700 clamp(1.8rem, 4vw, 2.5rem)/1 var(--serif); color: var(--forest-2); }
+@media (prefers-color-scheme: dark) { .stats b { color: #ffd479; } }
+.stats span { display: block; margin-top: 6px; font-size: 0.9rem; color: var(--muted); }
+
+/* ---------- Sections ---------- */
+section.block { padding: clamp(64px, 9vw, 112px) 0 0; }
+.section-head { max-width: 62ch; margin-bottom: 36px; }
+.section-head h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); margin: 10px 0 14px; text-wrap: balance; }
+.section-head p { color: var(--muted); font-size: 1.06rem; }
+
+/* ---------- Plan at a glance ---------- */
+.glance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px; box-shadow: var(--shadow);
+}
+.card .icon {
+  width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--amber) 26%, transparent), color-mix(in srgb, var(--ember) 20%, transparent));
+  color: var(--amber-ink);
+}
+.card h3 { font-size: 1.45rem; margin-bottom: 10px; }
+.card p { color: var(--muted); }
+
+/* ---------- Weekly rhythm ---------- */
+.rhythm { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 14px; }
+.rh-day {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 12px 16px;
+  display: flex; flex-direction: column; gap: 8px; min-width: 0;
+}
+.rh-day h4 { font: 700 0.8rem/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.slot { border-radius: 10px; padding: 8px 10px; font-size: 0.84rem; line-height: 1.3; background: var(--surface-2); }
+.slot b { display: block; font-size: 0.74rem; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+.slot.film { background: linear-gradient(135deg, var(--amber), var(--ember)); color: #1d0d00; }
+.slot.film b { color: rgba(29, 13, 0, 0.78); }
+.rh-day.is-film { border-color: color-mix(in srgb, var(--ember) 60%, var(--line)); }
+
+.tz { margin-top: 28px; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+.tz table { width: 100%; border-collapse: collapse; min-width: 720px; font-size: 0.93rem; }
+.tz th, .tz td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tz tr:last-child td { border-bottom: 0; }
+.tz thead th { font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: var(--surface-2); }
+.tz td small { display: block; color: var(--muted); margin-top: 2px; }
+.fineprint { color: var(--muted); font-size: 0.86rem; margin-top: 14px; }
+
+/* ---------- Seasons ---------- */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.tabs button {
+  appearance: none; cursor: pointer; font: 600 0.94rem/1 var(--sans); color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 12px 18px;
+}
+.tabs button small { font-weight: 500; color: var(--muted); margin-left: 6px; }
+.tabs button[aria-selected="true"] { background: var(--forest); border-color: var(--forest); color: var(--cream); }
+.tabs button[aria-selected="true"] small { color: rgba(251, 241, 220, 0.75); }
+.tabs button:hover:not([aria-selected="true"]) { background: var(--surface-2); }
+
+.js .panel:not(.active) { display: none; }
+.panel + .panel { margin-top: 56px; }
+.js .panel + .panel { margin-top: 0; }
+
+.film-card {
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); background: var(--forest); color: var(--cream);
+  border-radius: calc(var(--radius) + 4px); overflow: hidden; box-shadow: var(--shadow);
+}
+.film-card .pic { position: relative; min-height: 280px; }
+.film-card .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.badge {
+  position: absolute; left: 16px; top: 16px; background: linear-gradient(135deg, var(--amber), var(--ember)); color: #1d0d00;
+  font-weight: 700; font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px;
+}
+.film-body { padding: clamp(24px, 4vw, 44px); display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+.film-body .kicker { color: #ffd479; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; }
+.film-body h3 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); text-wrap: balance; }
+.film-body .sub { font: italic 600 1.05rem var(--serif); opacity: 0.9; }
+.film-body p { opacity: 0.88; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip { font-size: 0.84rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: rgba(251, 241, 220, 0.14); border: 1px solid rgba(251, 241, 220, 0.2); }
+
+.eps { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 26px; }
+.ep { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.ep img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--surface-2); }
+.ep .body { padding: 14px 16px 18px; }
+.ep .code { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; color: var(--amber-ink); }
+.ep h4 { font-size: 1.2rem; margin: 4px 0 6px; }
+.ep .when { font-size: 0.88rem; color: var(--muted); }
+.note { margin-top: 18px; color: var(--muted); font-size: 0.92rem; }
+
+/* ---------- Calendar ---------- */
+.legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; font-size: 0.88rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend i { width: 18px; height: 12px; border-radius: 4px; display: inline-block; background: var(--surface-2); border: 1px solid var(--line); }
+.legend i.film { background: linear-gradient(135deg, var(--amber), var(--ember)); border: 0; }
+.legend i.promo { background: transparent; border: 1.5px dashed var(--amber-ink); }
+
+.cal-head { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 8px; }
+.cal-head span { font: 700 0.76rem/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0 4px; }
+.week-label { margin: 28px 0 10px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; }
+.week-label h3 { font-size: 1.35rem; }
+.week-label span { color: var(--muted); font-size: 0.92rem; }
+.week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.day { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.day.is-empty { background: transparent; border-style: dashed; }
+.day.has-film { border-color: color-mix(in srgb, var(--ember) 55%, var(--line)); }
+.date { display: flex; align-items: baseline; gap: 5px; font-size: 0.8rem; color: var(--muted); }
+.date b { font: 700 1.25rem/1 var(--serif); color: var(--ink); }
+.date .wd { display: none; font-weight: 600; }
+.evs { display: flex; flex-direction: column; gap: 8px; }
+.ev { position: relative; display: block; text-decoration: none; border-radius: 9px; overflow: hidden; background: var(--surface-2); }
+.ev img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.ev .tag {
+  position: absolute; left: 6px; top: 6px; font: 700 0.64rem/1 var(--sans); letter-spacing: 0.06em; color: #fff;
+  background: rgba(10, 20, 15, 0.72); padding: 4px 6px; border-radius: 5px;
+}
+.ev .nm { display: block; padding: 6px 8px 8px; font-size: 0.76rem; line-height: 1.25; font-weight: 600; }
+.ev:hover { outline: 2px solid var(--amber); }
+.ev.film { background: linear-gradient(135deg, var(--amber), var(--ember)); color: #1d0d00; }
+.ev.film .tag { background: #1d0d00; color: #ffd479; }
+.ev.promo { background: transparent; border: 1.5px dashed var(--amber-ink); padding: 10px 8px; text-align: center; }
+.ev.promo b { display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-ink); }
+.ev.promo span { font-size: 0.8rem; font-weight: 600; }
+.empty-note { font-size: 0.78rem; color: var(--muted); }
+
+/* ---------- Finale ---------- */
+.finale {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: stretch; color: var(--cream);
+  background: linear-gradient(135deg, #0f2a20, var(--forest-2)); border-radius: calc(var(--radius) + 6px); overflow: hidden; box-shadow: var(--shadow);
+}
+.finale .copy { padding: clamp(28px, 5vw, 56px); display: flex; flex-direction: column; gap: 14px; justify-content: center; }
+.finale .copy h2 { font-size: clamp(2rem, 4.4vw, 3rem); text-wrap: balance; }
+.finale .copy p { opacity: 0.9; }
+.finale .pic { position: relative; min-height: 320px; }
+.finale .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Where to watch ---------- */
+.channels { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.channel { display: flex; flex-direction: column; gap: 10px; }
+.channel .plat { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-ink); }
+.channel h3 { font-size: 1.45rem; }
+.channel .handle { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92rem; color: var(--muted); }
+.channel .what { color: var(--muted); }
+.channel .soon { margin-top: auto; align-self: flex-start; font-size: 0.86rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
+
+/* ---------- AI note + FAQ ---------- */
+.ai-note {
+  display: flex; gap: 16px; align-items: flex-start; padding: 22px 24px; border-radius: var(--radius);
+  background: var(--surface-2); border: 1px solid var(--line);
+}
+.ai-note svg { flex: none; color: var(--amber-ink); margin-top: 2px; }
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; }
+.faq details + details { margin-top: 10px; }
+.faq summary { cursor: pointer; font: 600 1.1rem/1.4 var(--serif); padding: 18px 0; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 400 1.5rem/1 var(--sans); color: var(--amber-ink); }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { color: var(--muted); padding-bottom: 20px; max-width: 70ch; }
+
+/* ---------- Footer ---------- */
+.site-footer { margin-top: clamp(72px, 9vw, 120px); background: var(--forest); color: var(--cream); padding: 48px 0 40px; }
+.site-footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; }
+.site-footer img { height: 40px; width: auto; margin-bottom: 14px; }
+.site-footer p { opacity: 0.85; max-width: 52ch; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.site-footer li { opacity: 0.9; }
+.site-footer .legal { grid-column: 1 / -1; border-top: 1px solid rgba(251, 241, 220, 0.18); padding-top: 20px; font-size: 0.84rem; opacity: 0.72; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .glance { grid-template-columns: 1fr; }
+  .film-card, .finale { grid-template-columns: minmax(0, 1fr); }
+  .film-card .pic, .finale .pic { min-height: 0; aspect-ratio: 16 / 9; }
+  .finale .pic { order: -1; }
+  .stats ul { grid-template-columns: repeat(2, 1fr); }
+  .stats li:nth-child(3) { border-left: 0; }
+  .stats li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .channels { grid-template-columns: 1fr; }
+  .site-footer .wrap { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .cal-head { display: none; }
+  .week { grid-template-columns: 1fr; }
+  .day { flex-direction: row; gap: 14px; align-items: flex-start; }
+  .date { flex: none; width: 64px; flex-direction: column; gap: 2px; }
+  .date .wd { display: block; }
+  .evs { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .nav a { padding: 8px 10px; }
+  .stats li { padding: 18px 16px; }
+  .rhythm { grid-template-columns: 1fr; }
+  .tabs button small { display: none; }
+  .brand img { height: 30px; }
+}
+
+/* ---------- Links and buttons ---------- */
+.btn-sm { padding: 9px 16px; font-size: 0.88rem; }
+.btn-solid { background: var(--forest); color: var(--cream); }
+.btn-solid:hover { background: var(--forest-2); }
+.btn-outline { border-color: var(--line); color: var(--ink); background: var(--surface); }
+.btn-outline:hover { background: var(--surface-2); }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.links a { font-size: 0.82rem; font-weight: 600; text-decoration: none; padding: 6px 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
+.links a:hover { background: var(--amber); color: #1d0d00; border-color: transparent; }
+.channel .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 6px; }
+.site-footer a { text-decoration: underline; text-underline-offset: 3px; }
+.finale .btn-primary { align-self: flex-start; }
+
+@media (max-width: 760px) {
+  .rhythm { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Spark VertoByte, home"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/logos/spark-by-vertobyte-final-dark.svg"><img src="assets/logos/spark-by-vertobyte-final.svg" alt="Spark VertoByte" width="562" height="216" ></picture></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#plan">The plan</a><a href="#rhythm">A week</a><a href="#seasons">Seasons</a><a href="#calendar">Calendar</a><a href="#finale">Finale</a><a href="#watch">Where to watch</a><a href="#faq">FAQ</a>
+  </nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <span class="eyebrow">A VertoByte story series · Hindi and English</span>
+  <h1>Grow Slow</h1>
+  <p class="tagline">Little stories about big habits.</p>
+  <p class="tagline-hi" lang="hi">बड़ी आदतों की छोटी कहानियाँ।</p>
+  <p class="lede">Forty-eight short animated stories, six season films and one 27-minute finale, released over seven weeks from Tuesday 10 November 2026.</p>
+  <div class="cta-row"><a class="btn btn-primary" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Watch in English on YouTube</a><a class="btn btn-ghost" href="https://www.youtube.com/@SparkVertoByte" target="_blank" rel="noopener" lang="hi">हिंदी में देखें</a><a class="btn btn-ghost" href="#calendar">See the release calendar</a></div>
+</div></section>
+
+<div class="stats"><div class="wrap"><ul>
+  <li><b>48</b><span>episodes, each in Hindi and English</span></li>
+  <li><b>6</b><span>season films, every Saturday night</span></li>
+  <li><b>27:43</b><span>complete film on Sat 26 Dec</span></li>
+  <li><b>7</b><span>weeks, Tue 10 Nov to Sun 27 Dec</span></li>
+</ul></div></div>
+
+<section class="block" id="plan"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">The plan at a glance</span><h2>Three ways to watch, one story</h2>
+  <p>Every week follows the same pattern, so you always know what comes next and when.</p></div>
+  <div class="glance">
+    <article class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 9.5l3 2-3 2z" fill="currentColor"/></svg></div><h3>A story every day</h3><p>One short episode a day on YouTube Shorts and Instagram Reels, in Hindi and in English. Each one stands alone in under a minute.</p></article>
+    <article class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg></div><h3>A film every Saturday night</h3><p>At 7:00 PM IST each season arrives as one film: eight stories, about five minutes, with chapters so you can jump to your favourite.</p></article>
+    <article class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l5 7h-3l4 6H6l4-6H7z"/><path d="M12 16v5"/></svg></div><h3>One finale on Sat 26 Dec</h3><p>All 48 stories in a single 27-minute film, from one seed in dry soil to a whole forest.</p></article>
+  </div>
+</div></section>
+
+<section class="block" id="rhythm"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">A week with Grow Slow</span><h2>The weekly rhythm</h2>
+  <p>Monday to Friday bring one episode a day. Saturday is film night. Sunday closes the season with its last two stories.</p></div>
+  <div class="rhythm"><div class="rh-day"><h4>Monday to Friday</h4><div class="slot"><b>1:00 PM IST</b>Episodes 1 to 5, one a day · Hindi</div><div class="slot"><b>7:00 PM IST</b>Episodes 1 to 5, one a day · English</div></div><div class="rh-day is-film"><h4>Saturday</h4><div class="slot"><b>1:00 PM IST</b>Episode 6 · both languages</div><div class="slot film"><b>7:00 PM IST</b>Season film · English</div></div><div class="rh-day"><h4>Sunday</h4><div class="slot"><b>1:00 PM IST</b>Episode 7 · both languages</div><div class="slot"><b>7:00 PM IST</b>Episode 8, the finale · both languages</div></div></div>
+  <div class="tz"><table><thead><tr><th>Slot</th><th>What goes out</th><th>India</th><th>Gulf</th><th>Singapore</th><th>UK</th><th>US East</th></tr></thead><tbody><tr><td><b>1:00 PM IST</b></td><td>Hindi Shorts and Reels, Monday to Friday; both languages on Saturday and the first Sunday slot</td><td>1:00 PM</td><td>11:30 AM</td><td>3:30 PM</td><td>7:30 AM</td><td>2:30 AM</td></tr><tr><td><b>7:00 PM IST</b></td><td>English Shorts and Reels, Monday to Friday; the Saturday-night season film; the Sunday finale Short</td><td>7:00 PM</td><td>5:30 PM</td><td>9:30 PM</td><td>1:30 PM</td><td>8:30 AM</td></tr></tbody></table></div>
+  <p class="fineprint">Times shown are for November and December 2026, with the US on Eastern Standard Time and the UK on GMT. The first week starts on Tuesday 10 November, so Wednesday 11 November carries two episodes.</p>
+</div></section>
+
+<section class="block" id="seasons"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Six seasons, one forest</span><h2>Every season, every episode</h2>
+  <p>Each season is eight stories and a film. Pick a season to see its episodes and when they arrive.</p></div>
+  <div class="tabs" role="tablist" aria-label="Seasons">
+<button role="tab" id="tab-1" aria-controls="season-1" aria-selected="true" data-season="1" tabindex="0">Season 1<small>Patience</small></button>
+<button role="tab" id="tab-2" aria-controls="season-2" aria-selected="false" data-season="2" tabindex="-1">Season 2<small>Humility</small></button>
+<button role="tab" id="tab-3" aria-controls="season-3" aria-selected="false" data-season="3" tabindex="-1">Season 3<small>Resilience</small></button>
+<button role="tab" id="tab-4" aria-controls="season-4" aria-selected="false" data-season="4" tabindex="-1">Season 4<small>Community</small></button>
+<button role="tab" id="tab-5" aria-controls="season-5" aria-selected="false" data-season="5" tabindex="-1">Season 5<small>Perspective</small></button>
+<button role="tab" id="tab-6" aria-controls="season-6" aria-selected="false" data-season="6" tabindex="-1">Season 6<small>Legacy</small></button>
+</div>
+<section class="panel" id="season-1" role="tabpanel" aria-labelledby="tab-1" data-season="1"><div class="film-card"><div class="pic"><img src="assets/film/s01.webp" alt="Scene from Season 1" loading="lazy" width="1280" height="720"><span class="badge">Season film</span></div><div class="film-body"><span class="kicker">Season 1 · Patience</span><h3>He Kept Watering. Nothing Grew.</h3><p class="sub">Grow Slow Season 1: Before the First Leaf</p><p>Eight tiny stories for anyone who is doing the work before anyone can see it working.</p><div class="meta"><span class="chip">Sat 14 Nov 2026 · 7:00 PM IST</span><span class="chip">4:49 · English</span><span class="chip">8 chapters</span></div><div class="meta"><a class="btn btn-primary btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Watch the film on YouTube</a></div></div></div><div class="eps"><article class="ep"><img src="assets/thumbs/s01e01-one-small-step.webp" alt="Scene from One Small Step" loading="lazy" width="720" height="405"><div class="body"><div class="code">S01E01</div><h4>One Small Step</h4><div class="when">Tue 10 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S01E01 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S01E01 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s01e02-deep-roots.webp" alt="Scene from Deep Roots" loading="lazy" width="720" height="405"><div class="body"><div class="code">S01E02</div><h4>Deep Roots</h4><div class="when">Wed 11 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S01E02 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S01E02 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s01e03-her-little-seed.webp" alt="Scene from Her Little Seed" loading="lazy" width="720" height="405"><div class="body"><div class="code">S01E03</div><h4>Her Little Seed</h4><div class="when">Wed 11 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S01E03 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S01E03 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s01e04-a-cup-a-day.webp" alt="Scene from A Cup a Day" loading="lazy" width="720" height="405"><div class="body"><div class="code">S01E04</div><h4>A Cup a Day</h4><div class="when">Thu 12 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S01E04 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S01E04 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s01e05-ten-seeds.webp" alt="Scene from Ten Seeds" loading="lazy" width="720" height="405"><div class="body"><div class="code">S01E05</div><h4>Ten Seeds</h4><div class="when">Fri 13 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S01E05 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S01E05 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s01e06-find-your-light.webp" alt="Scene from Find Your Light" loading="lazy" width="720" height="405"><div class="body"><div class="code">S01E06</div><h4>Find Your Light</h4><div class="when">Sat 14 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S01E06 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S01E06 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s01e07-stop-digging.webp" alt="Scene from Stop Digging" loading="lazy" width="720" height="405"><div class="body"><div class="code">S01E07</div><h4>Stop Digging</h4><div class="when">Sun 15 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S01E07 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S01E07 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s01e08-pull-them-small.webp" alt="Scene from Pull Them Small" loading="lazy" width="720" height="405"><div class="body"><div class="code">S01E08</div><h4>Pull Them Small</h4><div class="when">Sun 15 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S01E08 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S01E08 in Hindi on YouTube">हिंदी में देखें</a></div></div></article></div></section>
+<section class="panel" id="season-2" role="tabpanel" aria-labelledby="tab-2" data-season="2"><div class="film-card"><div class="pic"><img src="assets/film/s02.webp" alt="Scene from Season 2" loading="lazy" width="1280" height="720"><span class="badge">Season film</span></div><div class="film-body"><span class="kicker">Season 2 · Humility</span><h3>The Tree Finally Bloomed. He Barely Looked.</h3><p class="sub">Grow Slow Season 2: When the Fruit Comes</p><p>Eight short stories about what comes after the wait: the first flowers, the first fruit and the first big offer.</p><div class="meta"><span class="chip">Sat 21 Nov 2026 · 7:00 PM IST</span><span class="chip">5:01 · English</span><span class="chip">8 chapters</span></div><div class="meta"><a class="btn btn-primary btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Watch the film on YouTube</a></div></div></div><div class="eps"><article class="ep"><img src="assets/thumbs/s02e01-the-pumpkin-next-door.webp" alt="Scene from The Pumpkin Next Door" loading="lazy" width="720" height="405"><div class="body"><div class="code">S02E01</div><h4>The Pumpkin Next Door</h4><div class="when">Mon 16 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S02E01 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S02E01 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s02e02-count-the-blossoms.webp" alt="Scene from Count the Blossoms" loading="lazy" width="720" height="405"><div class="body"><div class="code">S02E02</div><h4>Count the Blossoms</h4><div class="when">Tue 17 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S02E02 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S02E02 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s02e03-the-bees.webp" alt="Scene from The Bees" loading="lazy" width="720" height="405"><div class="body"><div class="code">S02E03</div><h4>The Bees</h4><div class="when">Wed 18 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S02E03 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S02E03 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s02e04-the-first-fruit.webp" alt="Scene from The First Fruit" loading="lazy" width="720" height="405"><div class="body"><div class="code">S02E04</div><h4>The First Fruit</h4><div class="when">Thu 19 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S02E04 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S02E04 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s02e05-the-bowing-branch.webp" alt="Scene from The Bowing Branch" loading="lazy" width="720" height="405"><div class="body"><div class="code">S02E05</div><h4>The Bowing Branch</h4><div class="when">Fri 20 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S02E05 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S02E05 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s02e06-market-apples.webp" alt="Scene from Market Apples" loading="lazy" width="720" height="405"><div class="body"><div class="code">S02E06</div><h4>Market Apples</h4><div class="when">Sat 21 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S02E06 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S02E06 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s02e07-save-some-seeds.webp" alt="Scene from Save Some Seeds" loading="lazy" width="720" height="405"><div class="body"><div class="code">S02E07</div><h4>Save Some Seeds</h4><div class="when">Sun 22 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S02E07 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S02E07 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s02e08-the-offer.webp" alt="Scene from The Offer" loading="lazy" width="720" height="405"><div class="body"><div class="code">S02E08</div><h4>The Offer</h4><div class="when">Sun 22 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S02E08 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S02E08 in Hindi on YouTube">हिंदी में देखें</a></div></div></article></div></section>
+<section class="panel" id="season-3" role="tabpanel" aria-labelledby="tab-3" data-season="3"><div class="film-card"><div class="pic"><img src="assets/film/s03.webp" alt="Scene from Season 3" loading="lazy" width="1280" height="720"><span class="badge">Season film</span></div><div class="film-body"><span class="kicker">Season 3 · Resilience</span><h3>Someone Was Snapping His Branches at Night</h3><p class="sub">Grow Slow Season 3: Drought and Flood</p><p>Eight short stories about setbacks: a fall, a drought, a flood and a visitor in the night.</p><div class="meta"><span class="chip">Sat 28 Nov 2026 · 7:00 PM IST</span><span class="chip">4:19 · English</span><span class="chip">8 chapters</span></div><div class="meta"><a class="btn btn-primary btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Watch the film on YouTube</a></div></div></div><div class="eps"><article class="ep"><img src="assets/thumbs/s03e01-the-fall.webp" alt="Scene from The Fall" loading="lazy" width="720" height="405"><div class="body"><div class="code">S03E01</div><h4>The Fall</h4><div class="when">Mon 23 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S03E01 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S03E01 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s03e02-too-proud-to-ask.webp" alt="Scene from Too Proud to Ask" loading="lazy" width="720" height="405"><div class="body"><div class="code">S03E02</div><h4>Too Proud to Ask</h4><div class="when">Tue 24 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S03E02 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S03E02 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s03e03-the-magic-powder.webp" alt="Scene from The Magic Powder" loading="lazy" width="720" height="405"><div class="body"><div class="code">S03E03</div><h4>The Magic Powder</h4><div class="when">Wed 25 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S03E03 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S03E03 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s03e04-the-dry-well.webp" alt="Scene from The Dry Well" loading="lazy" width="720" height="405"><div class="body"><div class="code">S03E04</div><h4>The Dry Well</h4><div class="when">Thu 26 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S03E04 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S03E04 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s03e05-the-broken-sapling.webp" alt="Scene from The Broken Sapling" loading="lazy" width="720" height="405"><div class="body"><div class="code">S03E05</div><h4>The Broken Sapling</h4><div class="when">Fri 27 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S03E05 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S03E05 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s03e06-the-fallen-giant.webp" alt="Scene from The Fallen Giant" loading="lazy" width="720" height="405"><div class="body"><div class="code">S03E06</div><h4>The Fallen Giant</h4><div class="when">Sat 28 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S03E06 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S03E06 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s03e07-the-night-visitor.webp" alt="Scene from The Night Visitor" loading="lazy" width="720" height="405"><div class="body"><div class="code">S03E07</div><h4>The Night Visitor</h4><div class="when">Sun 29 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S03E07 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S03E07 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s03e08-the-flood.webp" alt="Scene from The Flood" loading="lazy" width="720" height="405"><div class="body"><div class="code">S03E08</div><h4>The Flood</h4><div class="when">Sun 29 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S03E08 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S03E08 in Hindi on YouTube">हिंदी में देखें</a></div></div></article></div></section>
+<section class="panel" id="season-4" role="tabpanel" aria-labelledby="tab-4" data-season="4"><div class="film-card"><div class="pic"><img src="assets/film/s04.webp" alt="Scene from Season 4" loading="lazy" width="1280" height="720"><span class="badge">Season film</span></div><div class="film-body"><span class="kicker">Season 4 · Community</span><h3>Who Stays When the Fruit Is Gone?</h3><p class="sub">Grow Slow Season 4: Many Hands</p><p>Eight short stories about people: new kids, promises, shared work and the friends who stay.</p><div class="meta"><span class="chip">Sat 5 Dec 2026 · 7:00 PM IST</span><span class="chip">4:26 · English</span><span class="chip">8 chapters</span></div><div class="meta"><a class="btn btn-primary btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Watch the film on YouTube</a></div></div></div><div class="eps"><article class="ep"><img src="assets/thumbs/s04e01-the-new-kid.webp" alt="Scene from The New Kid" loading="lazy" width="720" height="405"><div class="body"><div class="code">S04E01</div><h4>The New Kid</h4><div class="when">Mon 30 Nov · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S04E01 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S04E01 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s04e02-grow-what-you-love.webp" alt="Scene from Grow What You Love" loading="lazy" width="720" height="405"><div class="body"><div class="code">S04E02</div><h4>Grow What You Love</h4><div class="when">Tue 1 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S04E02 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S04E02 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s04e03-the-promise.webp" alt="Scene from The Promise" loading="lazy" width="720" height="405"><div class="body"><div class="code">S04E03</div><h4>The Promise</h4><div class="when">Wed 2 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S04E03 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S04E03 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s04e04-the-treehouse.webp" alt="Scene from The Treehouse" loading="lazy" width="720" height="405"><div class="body"><div class="code">S04E04</div><h4>The Treehouse</h4><div class="when">Thu 3 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S04E04 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S04E04 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s04e05-after-the-fruit.webp" alt="Scene from After the Fruit" loading="lazy" width="720" height="405"><div class="body"><div class="code">S04E05</div><h4>After the Fruit</h4><div class="when">Fri 4 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S04E05 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S04E05 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s04e06-the-hardest-patch.webp" alt="Scene from The Hardest Patch" loading="lazy" width="720" height="405"><div class="body"><div class="code">S04E06</div><h4>The Hardest Patch</h4><div class="when">Sat 5 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S04E06 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S04E06 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s04e07-careless-words.webp" alt="Scene from Careless Words" loading="lazy" width="720" height="405"><div class="body"><div class="code">S04E07</div><h4>Careless Words</h4><div class="when">Sun 6 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S04E07 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S04E07 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s04e08-bend-the-road.webp" alt="Scene from Bend the Road" loading="lazy" width="720" height="405"><div class="body"><div class="code">S04E08</div><h4>Bend the Road</h4><div class="when">Sun 6 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S04E08 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S04E08 in Hindi on YouTube">हिंदी में देखें</a></div></div></article></div><p class="note">Hindi editions of this season follow once their recordings are finished.</p></section>
+<section class="panel" id="season-5" role="tabpanel" aria-labelledby="tab-5" data-season="5"><div class="film-card"><div class="pic"><img src="assets/film/s05.webp" alt="Scene from Season 5" loading="lazy" width="1280" height="720"><span class="badge">Season film</span></div><div class="film-body"><span class="kicker">Season 5 · Perspective</span><h3>Some Blessings Arrive Looking Like Rain</h3><p class="sub">Grow Slow Season 5: Let the Light In</p><p>Eight short stories about rest, letting go and doing good work that nobody notices.</p><div class="meta"><span class="chip">Sat 12 Dec 2026 · 7:00 PM IST</span><span class="chip">4:36 · English</span><span class="chip">8 chapters</span></div><div class="meta"><a class="btn btn-primary btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Watch the film on YouTube</a></div></div></div><div class="eps"><article class="ep"><img src="assets/thumbs/s05e01-the-resting-field.webp" alt="Scene from The Resting Field" loading="lazy" width="720" height="405"><div class="body"><div class="code">S05E01</div><h4>The Resting Field</h4><div class="when">Mon 7 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S05E01 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S05E01 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s05e02-the-pruning.webp" alt="Scene from The Pruning" loading="lazy" width="720" height="405"><div class="body"><div class="code">S05E02</div><h4>The Pruning</h4><div class="when">Tue 8 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S05E02 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S05E02 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s05e03-rain-on-kite-day.webp" alt="Scene from Rain on Kite Day" loading="lazy" width="720" height="405"><div class="body"><div class="code">S05E03</div><h4>Rain on Kite Day</h4><div class="when">Wed 9 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S05E03 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S05E03 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s05e04-the-fence.webp" alt="Scene from The Fence" loading="lazy" width="720" height="405"><div class="body"><div class="code">S05E04</div><h4>The Fence</h4><div class="when">Thu 10 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S05E04 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S05E04 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s05e05-two-fruits.webp" alt="Scene from Two Fruits" loading="lazy" width="720" height="405"><div class="body"><div class="code">S05E05</div><h4>Two Fruits</h4><div class="when">Fri 11 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S05E05 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S05E05 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s05e06-no-one-clapped.webp" alt="Scene from No One Clapped" loading="lazy" width="720" height="405"><div class="body"><div class="code">S05E06</div><h4>No One Clapped</h4><div class="when">Sat 12 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S05E06 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S05E06 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s05e07-who-is-it-for.webp" alt="Scene from Who Is It For?" loading="lazy" width="720" height="405"><div class="body"><div class="code">S05E07</div><h4>Who Is It For?</h4><div class="when">Sun 13 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S05E07 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S05E07 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s05e08-the-second-seed.webp" alt="Scene from The Second Seed" loading="lazy" width="720" height="405"><div class="body"><div class="code">S05E08</div><h4>The Second Seed</h4><div class="when">Sun 13 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S05E08 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S05E08 in Hindi on YouTube">हिंदी में देखें</a></div></div></article></div><p class="note">Hindi editions of this season follow once their recordings are finished.</p></section>
+<section class="panel" id="season-6" role="tabpanel" aria-labelledby="tab-6" data-season="6"><div class="film-card"><div class="pic"><img src="assets/film/s06.webp" alt="Scene from Season 6" loading="lazy" width="1280" height="720"><span class="badge">Season film</span></div><div class="film-body"><span class="kicker">Season 6 · Legacy</span><h3>Plant for People You’ll Never Meet</h3><p class="sub">Grow Slow Season 6: The Forest</p><p>Eight short stories about growing up, growing old and passing the watering can on.</p><div class="meta"><span class="chip">Sat 19 Dec 2026 · 7:00 PM IST</span><span class="chip">4:32 · English</span><span class="chip">8 chapters</span></div><div class="meta"><a class="btn btn-primary btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Watch the film on YouTube</a></div></div></div><div class="eps"><article class="ep"><img src="assets/thumbs/s06e01-roots-in-the-city.webp" alt="Scene from Roots in the City" loading="lazy" width="720" height="405"><div class="body"><div class="code">S06E01</div><h4>Roots in the City</h4><div class="when">Mon 14 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S06E01 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S06E01 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s06e02-the-two-fruit-tree.webp" alt="Scene from The Two-Fruit Tree" loading="lazy" width="720" height="405"><div class="body"><div class="code">S06E02</div><h4>The Two-Fruit Tree</h4><div class="when">Tue 15 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S06E02 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S06E02 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s06e03-the-student-again.webp" alt="Scene from The Student Again" loading="lazy" width="720" height="405"><div class="body"><div class="code">S06E03</div><h4>The Student Again</h4><div class="when">Wed 16 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S06E03 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S06E03 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s06e04-enough.webp" alt="Scene from Enough" loading="lazy" width="720" height="405"><div class="body"><div class="code">S06E04</div><h4>Enough</h4><div class="when">Thu 17 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S06E04 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S06E04 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s06e05-grandpas-chair.webp" alt="Scene from Grandpa’s Chair" loading="lazy" width="720" height="405"><div class="body"><div class="code">S06E05</div><h4>Grandpa’s Chair</h4><div class="when">Fri 18 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S06E05 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S06E05 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s06e06-shade-hell-never-sit-in.webp" alt="Scene from Shade He’ll Never Sit In" loading="lazy" width="720" height="405"><div class="body"><div class="code">S06E06</div><h4>Shade He’ll Never Sit In</h4><div class="when">Sat 19 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S06E06 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S06E06 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s06e07-pass-the-can.webp" alt="Scene from Pass the Can" loading="lazy" width="720" height="405"><div class="body"><div class="code">S06E07</div><h4>Pass the Can</h4><div class="when">Sun 20 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S06E07 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S06E07 in Hindi on YouTube">हिंदी में देखें</a></div></div></article><article class="ep"><img src="assets/thumbs/s06e08-the-forest.webp" alt="Scene from The Forest" loading="lazy" width="720" height="405"><div class="body"><div class="code">S06E08</div><h4>The Forest</h4><div class="when">Sun 20 Dec · Hindi and English</div><div class="links"><a href="https://www.youtube.com/@SparkVertoByteEnglish/shorts" target="_blank" rel="noopener" aria-label="Watch S06E08 in English on YouTube">Watch in English</a><a href="https://www.youtube.com/@SparkVertoByte/shorts" target="_blank" rel="noopener" lang="hi" aria-label="Watch S06E08 in Hindi on YouTube">हिंदी में देखें</a></div></div></article></div><p class="note">Hindi editions of this season follow once their recordings are finished.</p></section>
+</div></section>
+
+<section class="block" id="calendar"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">The release calendar</span><h2>Seven weeks, day by day</h2>
+  <p>Every episode and film on its release day. Select a thumbnail to jump to its season.</p></div>
+  <div class="legend"><span><i></i>Episode, Hindi and English</span><span><i class="film"></i>Season film, 7:00 PM IST</span><span><i class="promo"></i>Countdown Short</span></div>
+  <div class="cal-head" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+<div class="week-label"><h3>Week 1</h3><span>Season 1 · Before the First Leaf · film on Sat 14 Nov</span></div><div class="week">
+<div class="day is-empty"><div class="date"><span class="wd">Mon</span><b>9</b><span>Nov</span></div><div class="evs"><span class="empty-note">Before launch</span></div></div>
+<div class="day"><div class="date"><span class="wd">Tue</span><b>10</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="1" title="S01E01 One Small Step"><img src="assets/thumbs/s01e01-one-small-step.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S01E01</span><span class="nm">One Small Step</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Wed</span><b>11</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="1" title="S01E02 Deep Roots"><img src="assets/thumbs/s01e02-deep-roots.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S01E02</span><span class="nm">Deep Roots</span></a><a class="ev short" href="#seasons" data-goto-season="1" title="S01E03 Her Little Seed"><img src="assets/thumbs/s01e03-her-little-seed.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S01E03</span><span class="nm">Her Little Seed</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Thu</span><b>12</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="1" title="S01E04 A Cup a Day"><img src="assets/thumbs/s01e04-a-cup-a-day.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S01E04</span><span class="nm">A Cup a Day</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Fri</span><b>13</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="1" title="S01E05 Ten Seeds"><img src="assets/thumbs/s01e05-ten-seeds.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S01E05</span><span class="nm">Ten Seeds</span></a></div></div>
+<div class="day has-film"><div class="date"><span class="wd">Sat</span><b>14</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="1" title="S01E06 Find Your Light"><img src="assets/thumbs/s01e06-find-your-light.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S01E06</span><span class="nm">Find Your Light</span></a><a class="ev film" href="#season-1" data-goto-season="1" title="Season 1 film, 4:49, 7:00 PM IST"><img src="assets/film/s01.webp" alt="" loading="lazy" width="1280" height="720"><span class="tag">FILM · 7 PM</span><span class="nm">Season 1 film · 4:49</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Sun</span><b>15</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="1" title="S01E07 Stop Digging"><img src="assets/thumbs/s01e07-stop-digging.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S01E07</span><span class="nm">Stop Digging</span></a><a class="ev short" href="#seasons" data-goto-season="1" title="S01E08 Pull Them Small"><img src="assets/thumbs/s01e08-pull-them-small.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S01E08</span><span class="nm">Pull Them Small</span></a></div></div>
+</div>
+<div class="week-label"><h3>Week 2</h3><span>Season 2 · When the Fruit Comes · film on Sat 21 Nov</span></div><div class="week">
+<div class="day"><div class="date"><span class="wd">Mon</span><b>16</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="2" title="S02E01 The Pumpkin Next Door"><img src="assets/thumbs/s02e01-the-pumpkin-next-door.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S02E01</span><span class="nm">The Pumpkin Next Door</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Tue</span><b>17</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="2" title="S02E02 Count the Blossoms"><img src="assets/thumbs/s02e02-count-the-blossoms.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S02E02</span><span class="nm">Count the Blossoms</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Wed</span><b>18</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="2" title="S02E03 The Bees"><img src="assets/thumbs/s02e03-the-bees.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S02E03</span><span class="nm">The Bees</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Thu</span><b>19</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="2" title="S02E04 The First Fruit"><img src="assets/thumbs/s02e04-the-first-fruit.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S02E04</span><span class="nm">The First Fruit</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Fri</span><b>20</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="2" title="S02E05 The Bowing Branch"><img src="assets/thumbs/s02e05-the-bowing-branch.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S02E05</span><span class="nm">The Bowing Branch</span></a></div></div>
+<div class="day has-film"><div class="date"><span class="wd">Sat</span><b>21</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="2" title="S02E06 Market Apples"><img src="assets/thumbs/s02e06-market-apples.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S02E06</span><span class="nm">Market Apples</span></a><a class="ev film" href="#season-2" data-goto-season="2" title="Season 2 film, 5:01, 7:00 PM IST"><img src="assets/film/s02.webp" alt="" loading="lazy" width="1280" height="720"><span class="tag">FILM · 7 PM</span><span class="nm">Season 2 film · 5:01</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Sun</span><b>22</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="2" title="S02E07 Save Some Seeds"><img src="assets/thumbs/s02e07-save-some-seeds.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S02E07</span><span class="nm">Save Some Seeds</span></a><a class="ev short" href="#seasons" data-goto-season="2" title="S02E08 The Offer"><img src="assets/thumbs/s02e08-the-offer.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S02E08</span><span class="nm">The Offer</span></a></div></div>
+</div>
+<div class="week-label"><h3>Week 3</h3><span>Season 3 · Drought and Flood · film on Sat 28 Nov</span></div><div class="week">
+<div class="day"><div class="date"><span class="wd">Mon</span><b>23</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="3" title="S03E01 The Fall"><img src="assets/thumbs/s03e01-the-fall.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S03E01</span><span class="nm">The Fall</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Tue</span><b>24</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="3" title="S03E02 Too Proud to Ask"><img src="assets/thumbs/s03e02-too-proud-to-ask.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S03E02</span><span class="nm">Too Proud to Ask</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Wed</span><b>25</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="3" title="S03E03 The Magic Powder"><img src="assets/thumbs/s03e03-the-magic-powder.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S03E03</span><span class="nm">The Magic Powder</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Thu</span><b>26</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="3" title="S03E04 The Dry Well"><img src="assets/thumbs/s03e04-the-dry-well.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S03E04</span><span class="nm">The Dry Well</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Fri</span><b>27</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="3" title="S03E05 The Broken Sapling"><img src="assets/thumbs/s03e05-the-broken-sapling.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S03E05</span><span class="nm">The Broken Sapling</span></a></div></div>
+<div class="day has-film"><div class="date"><span class="wd">Sat</span><b>28</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="3" title="S03E06 The Fallen Giant"><img src="assets/thumbs/s03e06-the-fallen-giant.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S03E06</span><span class="nm">The Fallen Giant</span></a><a class="ev film" href="#season-3" data-goto-season="3" title="Season 3 film, 4:19, 7:00 PM IST"><img src="assets/film/s03.webp" alt="" loading="lazy" width="1280" height="720"><span class="tag">FILM · 7 PM</span><span class="nm">Season 3 film · 4:19</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Sun</span><b>29</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="3" title="S03E07 The Night Visitor"><img src="assets/thumbs/s03e07-the-night-visitor.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S03E07</span><span class="nm">The Night Visitor</span></a><a class="ev short" href="#seasons" data-goto-season="3" title="S03E08 The Flood"><img src="assets/thumbs/s03e08-the-flood.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S03E08</span><span class="nm">The Flood</span></a></div></div>
+</div>
+<div class="week-label"><h3>Week 4</h3><span>Season 4 · Many Hands · film on Sat 5 Dec</span></div><div class="week">
+<div class="day"><div class="date"><span class="wd">Mon</span><b>30</b><span>Nov</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="4" title="S04E01 The New Kid"><img src="assets/thumbs/s04e01-the-new-kid.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S04E01</span><span class="nm">The New Kid</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Tue</span><b>1</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="4" title="S04E02 Grow What You Love"><img src="assets/thumbs/s04e02-grow-what-you-love.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S04E02</span><span class="nm">Grow What You Love</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Wed</span><b>2</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="4" title="S04E03 The Promise"><img src="assets/thumbs/s04e03-the-promise.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S04E03</span><span class="nm">The Promise</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Thu</span><b>3</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="4" title="S04E04 The Treehouse"><img src="assets/thumbs/s04e04-the-treehouse.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S04E04</span><span class="nm">The Treehouse</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Fri</span><b>4</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="4" title="S04E05 After the Fruit"><img src="assets/thumbs/s04e05-after-the-fruit.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S04E05</span><span class="nm">After the Fruit</span></a></div></div>
+<div class="day has-film"><div class="date"><span class="wd">Sat</span><b>5</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="4" title="S04E06 The Hardest Patch"><img src="assets/thumbs/s04e06-the-hardest-patch.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S04E06</span><span class="nm">The Hardest Patch</span></a><a class="ev film" href="#season-4" data-goto-season="4" title="Season 4 film, 4:26, 7:00 PM IST"><img src="assets/film/s04.webp" alt="" loading="lazy" width="1280" height="720"><span class="tag">FILM · 7 PM</span><span class="nm">Season 4 film · 4:26</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Sun</span><b>6</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="4" title="S04E07 Careless Words"><img src="assets/thumbs/s04e07-careless-words.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S04E07</span><span class="nm">Careless Words</span></a><a class="ev short" href="#seasons" data-goto-season="4" title="S04E08 Bend the Road"><img src="assets/thumbs/s04e08-bend-the-road.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S04E08</span><span class="nm">Bend the Road</span></a></div></div>
+</div>
+<div class="week-label"><h3>Week 5</h3><span>Season 5 · Let the Light In · film on Sat 12 Dec</span></div><div class="week">
+<div class="day"><div class="date"><span class="wd">Mon</span><b>7</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="5" title="S05E01 The Resting Field"><img src="assets/thumbs/s05e01-the-resting-field.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S05E01</span><span class="nm">The Resting Field</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Tue</span><b>8</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="5" title="S05E02 The Pruning"><img src="assets/thumbs/s05e02-the-pruning.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S05E02</span><span class="nm">The Pruning</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Wed</span><b>9</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="5" title="S05E03 Rain on Kite Day"><img src="assets/thumbs/s05e03-rain-on-kite-day.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S05E03</span><span class="nm">Rain on Kite Day</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Thu</span><b>10</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="5" title="S05E04 The Fence"><img src="assets/thumbs/s05e04-the-fence.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S05E04</span><span class="nm">The Fence</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Fri</span><b>11</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="5" title="S05E05 Two Fruits"><img src="assets/thumbs/s05e05-two-fruits.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S05E05</span><span class="nm">Two Fruits</span></a></div></div>
+<div class="day has-film"><div class="date"><span class="wd">Sat</span><b>12</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="5" title="S05E06 No One Clapped"><img src="assets/thumbs/s05e06-no-one-clapped.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S05E06</span><span class="nm">No One Clapped</span></a><a class="ev film" href="#season-5" data-goto-season="5" title="Season 5 film, 4:36, 7:00 PM IST"><img src="assets/film/s05.webp" alt="" loading="lazy" width="1280" height="720"><span class="tag">FILM · 7 PM</span><span class="nm">Season 5 film · 4:36</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Sun</span><b>13</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="5" title="S05E07 Who Is It For?"><img src="assets/thumbs/s05e07-who-is-it-for.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S05E07</span><span class="nm">Who Is It For?</span></a><a class="ev short" href="#seasons" data-goto-season="5" title="S05E08 The Second Seed"><img src="assets/thumbs/s05e08-the-second-seed.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S05E08</span><span class="nm">The Second Seed</span></a></div></div>
+</div>
+<div class="week-label"><h3>Week 6</h3><span>Season 6 · The Forest · film on Sat 19 Dec</span></div><div class="week">
+<div class="day"><div class="date"><span class="wd">Mon</span><b>14</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="6" title="S06E01 Roots in the City"><img src="assets/thumbs/s06e01-roots-in-the-city.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S06E01</span><span class="nm">Roots in the City</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Tue</span><b>15</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="6" title="S06E02 The Two-Fruit Tree"><img src="assets/thumbs/s06e02-the-two-fruit-tree.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S06E02</span><span class="nm">The Two-Fruit Tree</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Wed</span><b>16</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="6" title="S06E03 The Student Again"><img src="assets/thumbs/s06e03-the-student-again.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S06E03</span><span class="nm">The Student Again</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Thu</span><b>17</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="6" title="S06E04 Enough"><img src="assets/thumbs/s06e04-enough.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S06E04</span><span class="nm">Enough</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Fri</span><b>18</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="6" title="S06E05 Grandpa’s Chair"><img src="assets/thumbs/s06e05-grandpas-chair.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S06E05</span><span class="nm">Grandpa’s Chair</span></a></div></div>
+<div class="day has-film"><div class="date"><span class="wd">Sat</span><b>19</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="6" title="S06E06 Shade He’ll Never Sit In"><img src="assets/thumbs/s06e06-shade-hell-never-sit-in.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S06E06</span><span class="nm">Shade He’ll Never Sit In</span></a><a class="ev film" href="#season-6" data-goto-season="6" title="Season 6 film, 4:32, 7:00 PM IST"><img src="assets/film/s06.webp" alt="" loading="lazy" width="1280" height="720"><span class="tag">FILM · 7 PM</span><span class="nm">Season 6 film · 4:32</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Sun</span><b>20</b><span>Dec</span></div><div class="evs"><a class="ev short" href="#seasons" data-goto-season="6" title="S06E07 Pass the Can"><img src="assets/thumbs/s06e07-pass-the-can.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S06E07</span><span class="nm">Pass the Can</span></a><a class="ev short" href="#seasons" data-goto-season="6" title="S06E08 The Forest"><img src="assets/thumbs/s06e08-the-forest.webp" alt="" loading="lazy" width="720" height="405"><span class="tag">S06E08</span><span class="nm">The Forest</span></a></div></div>
+</div>
+<div class="week-label"><h3>Week 7</h3><span>The complete series · film on Sat 26 Dec</span></div><div class="week">
+<div class="day"><div class="date"><span class="wd">Mon</span><b>21</b><span>Dec</span></div><div class="evs"><div class="ev promo"><b>Countdown</b><span>Short 1 of 7</span></div></div></div>
+<div class="day"><div class="date"><span class="wd">Tue</span><b>22</b><span>Dec</span></div><div class="evs"><div class="ev promo"><b>Countdown</b><span>Short 2 of 7</span></div></div></div>
+<div class="day"><div class="date"><span class="wd">Wed</span><b>23</b><span>Dec</span></div><div class="evs"><div class="ev promo"><b>Countdown</b><span>Short 3 of 7</span></div></div></div>
+<div class="day"><div class="date"><span class="wd">Thu</span><b>24</b><span>Dec</span></div><div class="evs"><div class="ev promo"><b>Countdown</b><span>Short 4 of 7</span></div></div></div>
+<div class="day"><div class="date"><span class="wd">Fri</span><b>25</b><span>Dec</span></div><div class="evs"><div class="ev promo"><b>Countdown</b><span>Short 5 of 7</span></div></div></div>
+<div class="day has-film"><div class="date"><span class="wd">Sat</span><b>26</b><span>Dec</span></div><div class="evs"><div class="ev promo"><b>Countdown</b><span>Short 6 of 7</span></div><a class="ev film" href="#finale" title="The complete series, 27:43, 7:00 PM IST"><img src="assets/film/complete.webp" alt="" loading="lazy" width="1280" height="720"><span class="tag">FILM · 7 PM</span><span class="nm">The complete series · 27:43</span></a></div></div>
+<div class="day"><div class="date"><span class="wd">Sun</span><b>27</b><span>Dec</span></div><div class="evs"><div class="ev promo"><b>Countdown</b><span>Short 7 of 7</span></div></div></div>
+</div>
+</div></section>
+
+<section class="block" id="finale"><div class="wrap">
+  <div class="finale">
+    <div class="copy"><span class="eyebrow" style="color:#ffd479">The grand finale · Sat 26 Dec 2026 · 7:00 PM IST</span>
+    <h2>One Boy, One Seed, a Whole Forest</h2>
+    <p>All 48 Grow Slow stories in one watch, from one seed in dry soil to a whole forest. Twenty-seven minutes, 48 chapters, and the whole story in order.</p>
+    <p>The week before, seven countdown Shorts build up to the film.</p>
+    <div class="meta"><span class="chip">27:43</span><span class="chip">English</span><span class="chip">48 chapters</span></div><div class="meta"><a class="btn btn-primary btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Watch the film on YouTube</a></div></div>
+    <div class="pic"><img src="assets/film/complete.webp" alt="A green valley with a forest of trees at sunset" loading="lazy" width="1280" height="720"></div>
+  </div>
+</div></section>
+
+<section class="block" id="watch"><div class="wrap">
+  <div class="section-head"><span class="eyebrow">Where to watch</span><h2>Two channels, two languages</h2>
+  <p>Hindi has its own home and so does English. The season films are in English and go out on YouTube.</p></div>
+  <div class="channels"><article class="card channel"><span class="plat">YouTube</span><h3>Spark VertoByte</h3><span class="handle">@SparkVertoByte</span><p class="what">Hindi Shorts, one a day, in Hindi with Devanagari captions.</p><div class="actions"><a class="btn btn-solid btn-sm" href="https://www.youtube.com/@SparkVertoByte" target="_blank" rel="noopener">Open on YouTube</a><a class="btn btn-outline btn-sm" href="https://www.youtube.com/@SparkVertoByte?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a></div></article><article class="card channel"><span class="plat">YouTube</span><h3>Spark VertoByte English</h3><span class="handle">@SparkVertoByteEnglish</span><p class="what">English Shorts, one a day, in English with English captions.</p><div class="actions"><a class="btn btn-solid btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">Open on YouTube</a><a class="btn btn-outline btn-sm" href="https://www.youtube.com/@SparkVertoByteEnglish?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a></div></article><article class="card channel"><span class="plat">Instagram</span><h3>Spark VertoByte</h3><span class="handle">@SparkVertoByte</span><p class="what">Hindi Reels for India, released alongside the Shorts.</p><div class="actions"><a class="btn btn-solid btn-sm" href="https://www.instagram.com/SparkVertoByte" target="_blank" rel="noopener">Open on Instagram</a></div></article><article class="card channel"><span class="plat">Instagram</span><h3>Spark VertoByte English</h3><span class="handle">@SparkVertoByteEnglish</span><p class="what">English Reels for everyone else, released alongside the Shorts.</p><div class="actions"><a class="btn btn-solid btn-sm" href="https://www.instagram.com/SparkVertoByteEnglish" target="_blank" rel="noopener">Open on Instagram</a></div></article></div>
+</div></section>
+
+<section class="block" id="faq"><div class="wrap">
+  <div class="ai-note"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><p><b>Made with AI, and we say so.</b> The pictures and the narration in Grow Slow are generated with AI tools, and every upload carries the AI-generated label.</p></div>
+  <div class="section-head" style="margin-top:56px"><span class="eyebrow">Questions</span><h2>Good to know</h2></div>
+  <div class="faq"><details><summary>What is Grow Slow?</summary><p>A series of short animated stories about patience, humility, resilience, community and legacy. It begins with one boy and one seed in dry soil, and by the sixth season there is a whole forest.</p></details><details><summary>Do I have to watch in order?</summary><p>No. Every story stands alone, and each season film collects its eight stories in one sitting. They do build on each other, so starting from Season 1 rewards you.</p></details><details><summary>Which language should I watch?</summary><p>Shorts and Reels come in Hindi on Spark VertoByte and in English on Spark VertoByte English. The season films and the complete film are in English. Hindi editions of Seasons 4 to 6 will follow.</p></details><details><summary>Is it made with AI?</summary><p>Yes. The pictures and the narration are created with AI tools, and every upload is marked as AI-generated.</p></details><details><summary>When does a new episode go out?</summary><p>One episode a day from Monday to Friday, then episode 6 and the season film on Saturday and episodes 7 and 8 on Sunday. Times are in the table above.</p></details><details><summary>Can the dates change?</summary><p>This is a plan, not a promise. Dates and times can move, and the channels always show the real schedule.</p></details></div>
+</div></section>
+</main>
+
+<footer class="site-footer"><div class="wrap">
+  <div><picture><source media="(prefers-color-scheme: dark)" srcset="assets/logos/spark-by-vertobyte-final-dark.svg"><img src="assets/logos/spark-by-vertobyte-final-dark.svg" alt="Spark VertoByte" width="562" height="216" ></picture><p>Grow Slow is a story series by Spark VertoByte, from VertoByte. Little stories about big habits.</p></div>
+  <ul><li>YouTube · <a href="https://www.youtube.com/@SparkVertoByte" target="_blank" rel="noopener">@SparkVertoByte</a> · <a href="https://www.youtube.com/@SparkVertoByteEnglish" target="_blank" rel="noopener">@SparkVertoByteEnglish</a></li><li>Instagram · <a href="https://www.instagram.com/SparkVertoByte" target="_blank" rel="noopener">@SparkVertoByte</a> · <a href="https://www.instagram.com/SparkVertoByteEnglish" target="_blank" rel="noopener">@SparkVertoByteEnglish</a></li><li>Hindi and English · AI-generated pictures and voice</li></ul>
+  <p class="legal">© 2026 VertoByte. This page shows the planned release schedule; dates and times may change.</p>
+</div></footer>
+<script>
+// Grow Slow release-plan site: season tabs and calendar links. Everything works without JS (all seasons stack).
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+  if (!tabs.length) return;
+
+  function select(n, moveFocus) {
+    n = String(n);
+    tabs.forEach(function (t) {
+      var on = t.dataset.season === n;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (on && moveFocus) t.focus();
+    });
+    panels.forEach(function (p) {
+      p.classList.toggle('active', p.dataset.season === n);
+    });
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t.dataset.season); });
+    t.addEventListener('keydown', function (ev) {
+      var next = null;
+      if (ev.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+      if (ev.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (ev.key === 'Home') next = tabs[0];
+      if (ev.key === 'End') next = tabs[tabs.length - 1];
+      if (next) { ev.preventDefault(); select(next.dataset.season, true); }
+    });
+  });
+
+  // Calendar tiles jump to their season.
+  Array.prototype.slice.call(document.querySelectorAll('[data-goto-season]')).forEach(function (a) {
+    a.addEventListener('click', function () { select(a.dataset.gotoSeason); });
+  });
+
+  // Deep link such as #season-3.
+  var m = /^#season-(\d)$/.exec(location.hash || '');
+  select(m ? m[1] : 1);
+})();
+
+</script>
+</body>
+</html>
