@@ -57,21 +57,45 @@ YT_EN = "https://www.youtube.com/@SparkVertoByteEnglish"
 IG_HI = "https://www.instagram.com/SparkVertoByte"
 IG_EN = "https://www.instagram.com/SparkVertoByteEnglish"
 # After an upload, paste the exact video link here and the matching button opens that video, e.g.
-# EPISODE_LINKS = {"S01E01": {"en": "https://www.youtube.com/shorts/...", "hi": "https://www.youtube.com/shorts/..."}}
 # FILM_LINKS = {1: "https://www.youtube.com/watch?v=...", "complete": "https://www.youtube.com/watch?v=..."}
-EPISODE_LINKS = {}
+# "en" / "hi" are the YouTube Shorts; "ig_en" / "ig_hi" are the Instagram Reels. A missing link opens the channel or profile.
+EPISODE_LINKS = {
+    "S01E01": {
+        "en": "https://www.youtube.com/shorts/zcYEEak5BeQ", "hi": "https://www.youtube.com/shorts/8AbT_DuEwq0",
+        "ig_en": "https://www.instagram.com/sparkvertobyteenglish/reel/DfkH4fKivNk/", "ig_hi": "https://www.instagram.com/sparkvertobyte/reel/DfkIIwAtUfC/",
+    },
+}
 FILM_LINKS = {}
+# Uploads that really went out at a different time from the plan's slot: "CODE" -> (HH:MM IST, languages).
+# The entry replaces that episode's planned slots, so the live panel shows the real release time.
+ACTUAL = {
+    "S01E01": ("20:00", ["hi", "en"]),  # Hindi and English together at 8 PM IST on Tue 10 Nov 2026
+}
 # Release slots that are NOT going out at their planned time. The live status panel shows these as
 # "coming soon" instead of "out now". "CODE:lang" -> note shown on the card. Delete the entry once the upload is live.
-DELAYED = {"S01E01:hi": "Hindi edition coming soon"}
+DELAYED = {}
 
 
 def ep_links(code):
-    en = EPISODE_LINKS.get(code, {}).get("en") or YT_EN + "/shorts"
-    hi = EPISODE_LINKS.get(code, {}).get("hi") or YT_HI + "/shorts"
-    return ('<div class="links">'
-            f'<a href="{en}" target="_blank" rel="noopener" aria-label="Watch {code} in English on YouTube">Watch in English</a>'
-            f'<a href="{hi}" target="_blank" rel="noopener" lang="hi" aria-label="Watch {code} in Hindi on YouTube">हिंदी में देखें</a></div>')
+    """YouTube and Instagram buttons for both languages of one episode."""
+    rows = []
+    for lang, label, name in (("en", "English", "English"), ("hi", "हिंदी", "Hindi")):
+        yt, ig = ep_url(code, lang), ig_url(code, lang)
+        lg = ' lang="hi"' if lang == "hi" else ""
+        rows.append(f'<div class="lk-row"><span class="lk-l"{lg}>{label}</span>'
+                    f'<a href="{yt}" target="_blank" rel="noopener" aria-label="Watch {code} in {name} on YouTube">YouTube</a>'
+                    f'<a href="{ig}" target="_blank" rel="noopener" aria-label="Watch {code} in {name} on Instagram">Instagram</a></div>')
+    return '<div class="links by-lang">' + "".join(rows) + '</div>'
+
+
+def ep_url(code, lang):
+    """YouTube Short for an episode and language; the channel's Shorts tab until the upload is recorded."""
+    return EPISODE_LINKS.get(code, {}).get(lang) or (YT_EN if lang == "en" else YT_HI) + "/shorts"
+
+
+def ig_url(code, lang):
+    """Instagram Reel for an episode and language; the profile until the post is recorded."""
+    return EPISODE_LINKS.get(code, {}).get("ig_" + lang) or (IG_EN if lang == "en" else IG_HI)
 
 
 def film_link_html(key):
@@ -133,22 +157,22 @@ def add_slots(day, times, **kw):
         for l in held:
             SLOTS.append(dict(kw, t=t, l=[l], d=DELAYED[f"{kw['c']}:{l}"]))
 
-def ep_url(code, lang):
-    return EPISODE_LINKS.get(code, {}).get(lang) or (YT_EN if lang == "en" else YT_HI) + "/shorts"
 
 for s in SEASONS:
     for i, name in enumerate(s["eps"]):
         code = f"S{s['n']:02d}E{i + 1:02d}"
         times = [(h, [l for l in ls if l == "en" or s["n"] <= 3]) for h, ls in times_for(i, s["n"] == 1)]  # Hindi S04 to S06 not recorded yet
+        if code in ACTUAL:
+            times = [ACTUAL[code]]
         add_slots(s["dates"][i], [(h, ls) for h, ls in times if ls], k="short", c=code, n=name, s=s["n"], i=thumb(code),
-                  u={"en": ep_url(code, "en"), "hi": ep_url(code, "hi")})
+                  u={"en": ep_url(code, "en"), "hi": ep_url(code, "hi")}, g={"en": ig_url(code, "en"), "hi": ig_url(code, "hi")})
     add_slots(s["film"], [("19:00", ["en"])], k="film", c=f"S{s['n']:02d}FILM", n=f"Season {s['n']} film", x=f"{s['name']} · {s['runtime']}",
               s=s["n"], i=f"assets/film/s0{s['n']}.webp", u={"en": FILM_LINKS.get(s["n"]) or YT_EN})
 for n in range(1, PROMOS + 1):
     day = week7 + timedelta(days=n - 1)
     times = [("13:00", ["hi", "en"])] if n == 6 else [("13:00", ["hi"]), ("19:00", ["en"])]
     add_slots(day, times, k="promo", c=f"PROMO{n}", n=f"Countdown Short {n} of {PROMOS}", s=0, i="assets/film/complete.webp",
-              u={"en": YT_EN + "/shorts", "hi": YT_HI + "/shorts"})
+              u={"en": YT_EN + "/shorts", "hi": YT_HI + "/shorts"}, g={"en": IG_EN, "hi": IG_HI})
 add_slots(FINALE, [("19:00", ["en"])], k="film", c="COMPLETE", n="The complete series", x="27:43 · English", s=0,
           i="assets/film/complete.webp", u={"en": FILM_LINKS.get("complete") or YT_EN})
 SLOTS.sort(key=lambda s: (s["t"], {"short": 0, "promo": 0, "film": 1}[s["k"]], s["c"]))
@@ -279,7 +303,7 @@ def page():
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Grow Slow: the release plan | Spark VertoByte</title>
 <meta name="description" content="48 short animated stories in Hindi and English, six season films and one 27-minute finale, released from 10 November 2026. See the full plan.">
 <meta name="theme-color" content="#163a2d">

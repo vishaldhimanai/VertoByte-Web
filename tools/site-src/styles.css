@@ -52,7 +52,10 @@ a { color: inherit; }
 h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.12; letter-spacing: -0.01em; margin: 0; }
 p { margin: 0; }
 
-.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+.wrap {
+  max-width: 1180px; margin: 0 auto; padding: 0 20px;
+  padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right));
+}
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
@@ -321,13 +324,31 @@ section.block { padding: clamp(64px, 9vw, 112px) 0 0; scroll-margin-top: 56px; }
 .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .links a { font-size: 0.82rem; font-weight: 600; text-decoration: none; padding: 6px 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
 .links a:hover { background: var(--amber); color: #1d0d00; border-color: transparent; }
+/* One row per language: the language label on its own line, then the YouTube and Instagram buttons. */
+.links.by-lang { flex-direction: column; flex-wrap: nowrap; gap: 10px; }
+.lk-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.lk-l { flex: 0 0 100%; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.lk-l[lang="hi"] { letter-spacing: 0; font-size: 0.8rem; }
 .channel .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 6px; }
 .site-footer a { text-decoration: underline; text-underline-offset: 3px; }
 .finale .btn-primary { align-self: flex-start; }
 
 @media (max-width: 760px) {
   .rhythm { grid-template-columns: 1fr; }
+  /* The section menu scrolls sideways: fade its right edge so a cut-off link reads as "more". */
+  .nav { padding-right: 28px; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); }
 }
+
+/* Touch screens and phones: thumb-sized targets (44 px) for every link and button. */
+@media (hover: none), (max-width: 560px) {
+  .nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .btn, .btn-sm { min-height: 44px; justify-content: center; }
+  .links a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; font-size: 0.88rem; }
+  .tabs button { min-height: 44px; }
+  .faq summary { min-height: 48px; align-items: center; }
+  .ev { min-height: 44px; }
+}
+.site-footer { padding-bottom: max(40px, calc(24px + env(safe-area-inset-bottom))); }
 
 /* ---------- Live release status ---------- */
 :root { --ok: #17803f; }

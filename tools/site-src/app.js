@@ -97,10 +97,18 @@
     }).join('') + '</span>';
   }
   function kindLabel(s) { return s.k === 'short' ? s.c : (s.k === 'film' ? 'FILM' : 'COUNTDOWN'); }
+  // Films are on YouTube only. A Short or countdown gets YouTube and Instagram buttons for each language that is out.
   function watch(s) {
-    return '<div class="links">' + s.l.map(function (l) {
-      var text = s.k === 'film' ? 'Watch the film' : (l === 'hi' ? 'हिंदी में देखें' : 'Watch in English');
-      return '<a href="' + esc(s.u[l]) + '" target="_blank" rel="noopener"' + (l === 'hi' && s.k !== 'film' ? ' lang="hi"' : '') + '>' + text + '</a>';
+    if (s.k === 'film' || !s.g) {
+      return '<div class="links">' + s.l.map(function (l) {
+        return '<a href="' + esc(s.u[l]) + '" target="_blank" rel="noopener">Watch the film</a>';
+      }).join('') + '</div>';
+    }
+    return '<div class="links by-lang">' + s.l.map(function (l) {
+      var hi = l === 'hi', name = hi ? 'Hindi' : 'English';
+      return '<div class="lk-row"><span class="lk-l"' + (hi ? ' lang="hi"' : '') + '>' + (hi ? 'हिंदी' : 'English') + '</span>' +
+        '<a href="' + esc(s.u[l]) + '" target="_blank" rel="noopener" aria-label="Watch ' + esc(s.c) + ' in ' + name + ' on YouTube">YouTube</a>' +
+        '<a href="' + esc(s.g[l]) + '" target="_blank" rel="noopener" aria-label="Watch ' + esc(s.c) + ' in ' + name + ' on Instagram">Instagram</a></div>';
     }).join('') + '</div>';
   }
 
