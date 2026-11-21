@@ -1,6 +1,6 @@
 # VertoByte Web
 
-The public website for **Spark VertoByte** and its *Grow Slow* series: a static, HTML-only page at https://vertobyte.com/ that shows the weekly rhythm, every season and episode, and the day-by-day release calendar, with links to the YouTube channels and Instagram accounts.
+The public website for **Spark VertoByte** and its story series (**Grow Slow**, **MS Dhoni: Moments That Made a Champion**, and **Before the Spark**): a static, HTML-only page at https://vertobyte.com/ that showcases all released episodes and their story timelines, with direct links to the YouTube channels and Instagram accounts.
 
 ## What is here
 
@@ -26,24 +26,28 @@ npx wrangler deploy
 
 GitHub Pages (*Settings → Pages → `production` → `/docs`*) also serves the same folder, but the custom domain does not go through it. All paths are relative, so the site also works at `username.github.io/VertoByte-Web/`.
 
-## Live release status
+## Released Series & Episodes
 
-The "Today on Grow Slow" section compares the plan's release slots (in IST) with the visitor's clock, so it shows what is out, what goes out today and what comes next without a rebuild. It also marks the calendar days and episode cards. The slots come from `build.py` (`times_for`, `SLOTS`) and follow the weekly rhythm in the plan.
+Video upload times are flexible throughout the day and episodes release as they are finished, rather than adhering to rigid clock times or speculative upcoming schedules. The site highlights all confirmed uploaded videos across Spark VertoByte's series:
 
-- **A release is late or not going out:** add `"CODE:lang": "note"` to `DELAYED` in `build.py` (for example `"S02E03:hi": "Hindi edition coming soon"`), rebuild and publish. It then shows as "coming soon" instead of "out now". Delete the entry once the upload is live.
-- **A release went out at a different time from the plan:** add `"CODE": ("HH:MM", ["hi", "en"])` (IST) to `ACTUAL` in `build.py`. It replaces that episode's planned slots, so the status panel shows the real time. S01E01 went out in both languages at 8 PM IST on 10 November 2026.
-- **Preview any moment:** add `?now=2026-11-14T20:00:00%2B05:30` to the page address.
-- It follows the schedule, not YouTube: it cannot know whether an upload really happened.
+- **Grow Slow:** 10 uploaded episodes (Season 1 complete with 8 episodes; Season 2 in progress with 2 episodes).
+- **MS Dhoni: Moments That Made a Champion:** Season 1 Episode 1 (*The Boy in Goal*) live in Hindi and English with full playlist link.
+- **Before the Spark:** Season 1 Episode 1 (*Jensen Huang: The Best Dishwasher*) live in Hindi and English.
+- **No speculative upcoming cards:** The website only displays videos that are actually uploaded and streaming.
 
 ## Change it
 
-Edit the data at the top of `tools/site-src/build.py` (names, dates, blurbs) or `styles.css`, then run:
+Edit the data in `tools/site-src/build.py` (released episode entries, video URLs) or `styles.css`, then run:
 
 ```bash
 python3 tools/site-src/build.py
 ```
 
-That rewrites `docs/index.html`. After an upload, paste the exact links into `EPISODE_LINKS` (`"en"` and `"hi"` for the YouTube Shorts, `"ig_en"` and `"ig_hi"` for the Instagram Reels) or `FILM_LINKS` (YouTube only) in `build.py` and rebuild. Every episode shows YouTube and Instagram buttons for both languages; until its links are recorded, each button opens the channel's Shorts tab or the Instagram profile.
+That rewrites `docs/index.html`. After an upload, update the episode lists and paste the exact links in `tools/site-src/build.py`, then rebuild.
+
+## Founder and link preview
+
+The **Behind VertoByte** section, the footer line, the FAQ answer and the JSON-LD in the page head come from `founder_section_html()`, `FAQ` and `page()` in `build.py`; the LinkedIn address is `LINKEDIN_URL` at the top of that file. `docs/assets/og-image.jpg` (1200 x 630) is the picture LinkedIn, WhatsApp and similar apps show when the link is shared. After deploying, ask LinkedIn to refresh its cached preview at https://www.linkedin.com/post-inspector/.
 
 ## Phones
 
