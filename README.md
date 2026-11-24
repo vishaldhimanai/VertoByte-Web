@@ -1,6 +1,6 @@
 # VertoByte Web
 
-The public website for **Spark VertoByte** and its story series (**Grow Slow**, **MS Dhoni: Moments That Made a Champion**, and **Before the Spark**): a static, HTML-only page at https://vertobyte.com/ that showcases all released episodes and their story timelines, with direct links to the YouTube channels and Instagram accounts.
+The public website for **Spark VertoByte** and its story series (**Grow Slow**, **MS Dhoni: Moments That Made a Champion**, and **Before the Spark**): a static, HTML-only page at https://vertobyte.com/ that showcases all released episodes and their story timelines, with links to the active Spark VertoByte accounts on YouTube and Instagram.
 
 ## What is here
 
@@ -31,8 +31,10 @@ GitHub Pages (*Settings → Pages → `production` → `/docs`*) also serves the
 Video upload times are flexible throughout the day and episodes release as they are finished, rather than adhering to rigid clock times or speculative upcoming schedules. The site highlights all confirmed uploaded videos across Spark VertoByte's series:
 
 - **Grow Slow:** 10 uploaded episodes (Season 1 complete with 8 episodes; Season 2 in progress with 2 episodes).
-- **MS Dhoni: Moments That Made a Champion:** Season 1 Episode 1 (*The Boy in Goal*) live in Hindi and English with full playlist link.
-- **Before the Spark:** Season 1 Episode 1 (*Jensen Huang: The Best Dishwasher*) live in Hindi and English.
+- **MS Dhoni: Moments That Made a Champion:** Season 1 episodes *The Boy in Goal* and *The Ticket Examiner* are available in Hindi.
+- **Before the Spark:** Season 1 Episode 1 (*The Best Dishwasher*) is available in Hindi.
+- **Parathas in the Monsoon** is a wordless short available on both platforms.
+- **Grow Slow: Living Diorama** is a released YouTube preview.
 - **No speculative upcoming cards:** The website only displays videos that are actually uploaded and streaming.
 
 ## Change it

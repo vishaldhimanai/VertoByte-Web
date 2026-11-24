@@ -21,9 +21,7 @@ JS = open(os.path.join(HERE, "app.js"), encoding="utf-8").read()
 
 # Channel and profile links
 YT_HI = "https://www.youtube.com/@SparkVertoByte"
-YT_EN = "https://www.youtube.com/@SparkVertoByteEnglish"
 IG_HI = "https://www.instagram.com/SparkVertoByte"
-IG_EN = "https://www.instagram.com/SparkVertoByteEnglish"
 
 # Founder profile and the public address (the social preview needs an absolute image URL)
 SITE_URL = "https://vertobyte.com/"
@@ -34,45 +32,34 @@ FOUNDER_NAME = "Vishal Dhiman"
 EPISODE_LINKS = {
     # Grow Slow Series
     "S01E01": {
-        "en": "https://www.youtube.com/shorts/zcYEEak5BeQ",
         "hi": "https://www.youtube.com/shorts/8AbT_DuEwq0",
-        "ig_en": "https://www.instagram.com/sparkvertobyteenglish/reel/DfkH4fKivNk/",
         "ig_hi": "https://www.instagram.com/sparkvertobyte/reel/DfkIIwAtUfC/",
     },
     "S01E02": {
-        "en": "https://www.youtube.com/shorts/ZqX9d1jIJVA",
         "hi": "https://www.youtube.com/shorts/eZi4schxm68",
     },
     "S01E03": {
-        "en": "https://www.youtube.com/shorts/vuu1qcHiNwo",
         "hi": "https://www.youtube.com/shorts/n0gAFDd9QSI",
     },
     "S01E04": {
-        "en": "https://www.youtube.com/shorts/gbjwJ01vsBE",
         "hi": "https://www.youtube.com/shorts/szdEtMT0DGk",
     },
     "S01E05": {
-        "en": "https://www.youtube.com/shorts/1Ps-0ImUfvk",
         "hi": "https://www.youtube.com/shorts/JyapxrVS808",
     },
     "S01E06": {
-        "en": "https://www.youtube.com/shorts/EwmvxKNl5_0",
         "hi": "https://www.youtube.com/shorts/yQzr2Jh0um0",
     },
     "S01E07": {
-        "en": "https://www.youtube.com/shorts/U7L5je2fb5Q",
         "hi": "https://www.youtube.com/shorts/ej76-FeVwow",
     },
     "S01E08": {
-        "en": "https://www.youtube.com/shorts/RVpatEd-0xI",
         "hi": "https://www.youtube.com/shorts/RdU-vqXrDGo",
     },
     "S02E01": {
-        "en": "https://www.youtube.com/shorts/8NoSVI-2UhE",
         "hi": "https://www.youtube.com/shorts/1TZi9CbPMLc",
     },
     "S02E02": {
-        "en": "https://www.youtube.com/shorts/Jio-EGhliok",
         "hi": "https://www.youtube.com/shorts/WU5ttlX2NdQ",
     },
 }
@@ -169,7 +156,7 @@ SEASONS = [
         theme="Patience",
         status="Complete (8 Episodes)",
         phrase="He Kept Watering. Nothing Grew.",
-        blurb="Eight tiny stories for anyone who is doing the work before anyone can see it working. The complete first arc is out now in Hindi and English.",
+        blurb="Eight tiny stories for anyone who is doing the work before anyone can see it working. The complete first arc is available in Hindi.",
         eps=[
             "One Small Step",
             "Deep Roots",
@@ -200,19 +187,25 @@ DHONI_SERIES = dict(
     title="MS Dhoni: Moments That Made a Champion",
     tagline="The small moments that made a champion, one takeaway per story.",
     tagline_hi="वो छोटे पल जिन्होंने एक champion बनाया, हर कहानी में एक सीख।",
-    playlist_hi="https://www.youtube.com/playlist?list=PLef4XhWJG7lM",
     eps=[
         dict(
             code="S01E01",
             title="The Boy in Goal",
             title_hi="The Boy in Goal",
             yt_hi="https://www.youtube.com/shorts/cBatA1_mPsM",
-            yt_en="https://www.youtube.com/shorts/VT-PbNn6ddg",
-            thumb="https://i.ytimg.com/vi/VT-PbNn6ddg/hqdefault.jpg",
+            thumb="https://i.ytimg.com/vi/cBatA1_mPsM/hqdefault.jpg",
             desc="Before MS Dhoni was a wicketkeeper, he was a football goalkeeper at his school in Ranchi. His coach saw him diving between the posts and asked him to try wicketkeeping. The reflexes were already there—they just needed the right pitch.",
             quote="“Sometimes you don’t lack skill; you just need to change the field.”",
             quote_hi="“कभी-कभी आपकी skill कम नहीं होती, बस मैदान बदलना पड़ता है।”",
-        )
+        ),
+        dict(
+            code="S01E02",
+            title="The Ticket Examiner",
+            yt_hi="https://www.youtube.com/shorts/jM51VJBh16E",
+            thumb="assets/thumbs/the-ticket-examiner.webp",
+            portrait=True,
+            desc="A railway job gave Dhoni a place on a cricket team. He kept playing alongside his day job until India A picked him.",
+        ),
     ],
 )
 
@@ -227,13 +220,27 @@ BUILDERS_SERIES = dict(
             title="The Best Dishwasher",
             subject="Jensen Huang (Nvidia)",
             yt_hi="https://www.youtube.com/shorts/rLale_Vs_kM",
-            yt_en="https://www.youtube.com/shorts/DllJvINZQf8",
-            thumb="https://i.ytimg.com/vi/DllJvINZQf8/hqdefault.jpg",
+            thumb="https://i.ytimg.com/vi/rLale_Vs_kM/hqdefault.jpg",
             desc="At 15, years before co-founding Nvidia, Jensen Huang washed dishes and cleaned tables at Denny's. He resolved to be the best dishwasher they ever had, learning that greatness starts with total dedication to humble tasks.",
             quote="“You cannot pick your tasks, but you can always pick your dedication.”",
             quote_hi="Nvidia से पहले Jensen Huang ने Denny’s में बर्तन धोए।",
         )
     ],
+)
+
+MONSOON = dict(
+    title="Parathas in the Monsoon",
+    thumb="assets/thumbs/parathas-in-the-monsoon.webp",
+    desc="Rain pours over a Himachali hillside home while a family cooks hot parathas over the chulha. A wordless short with rain, fire and kitchen sounds.",
+    youtube="https://www.youtube.com/shorts/MH446B_cyXA",
+    instagram="https://www.instagram.com/reel/DgIFSMziMNC/",
+)
+
+GROW_SLOW_PROMO = dict(
+    title="Grow Slow: Living Diorama",
+    thumb="assets/thumbs/grow-slow-living-diorama.webp",
+    desc="Six miniature scenes from One Small Step and Deep Roots come to life in a short preview.",
+    youtube="https://www.youtube.com/shorts/6b_AbtHSLB4",
 )
 
 ICONS = {
@@ -261,54 +268,31 @@ def thumb(code):
     return "assets/thumbs/" + os.path.basename(hits[0])
 
 
-def ep_url(code, lang):
-    """Direct YouTube Short URL, or channel shorts feed if unmapped."""
-    return EPISODE_LINKS.get(code, {}).get(lang) or (YT_EN if lang == "en" else YT_HI) + "/shorts"
-
-
-def ig_url(code, lang):
-    """Direct Instagram Reel URL, or channel profile if unmapped."""
-    return EPISODE_LINKS.get(code, {}).get("ig_" + lang) or (IG_EN if lang == "en" else IG_HI)
+def watch_links(youtube, instagram=None, *, buttons=False, hindi=False):
+    youtube_label = "Watch in Hindi on YouTube" if hindi else "Watch on YouTube"
+    instagram_label = "Watch on Instagram" if instagram else "Instagram profile"
+    youtube_class = ' class="btn btn-solid btn-sm"' if buttons else ""
+    instagram_class = ' class="btn btn-outline btn-sm"' if buttons else ""
+    return (
+        '<div class="links">'
+        f'<a{youtube_class} href="{esc(youtube)}" target="_blank" rel="noopener">{youtube_label}</a>'
+        f'<a{instagram_class} href="{esc(instagram or IG_HI)}" target="_blank" rel="noopener">{instagram_label}</a>'
+        '</div>'
+    )
 
 
 def ep_links(code):
-    """YouTube and Instagram buttons for both languages of an episode."""
-    rows = []
-    for lang, label, name in (("en", "English", "English"), ("hi", "हिंदी", "Hindi")):
-        yt, ig = ep_url(code, lang), ig_url(code, lang)
-        lg = ' lang="hi"' if lang == "hi" else ""
-        rows.append(
-            f'<div class="lk-row"><span class="lk-l"{lg}>{label}</span>'
-            f'<a href="{yt}" target="_blank" rel="noopener" aria-label="Watch {code} in {name} on YouTube">YouTube</a>'
-            f'<a href="{ig}" target="_blank" rel="noopener" aria-label="Watch {code} in {name} on Instagram">Instagram</a></div>'
-        )
-    return '<div class="links by-lang">' + "".join(rows) + '</div>'
+    links = EPISODE_LINKS[code]
+    return watch_links(links["hi"], links.get("ig_hi"))
 
 
-def featured_release_html():
-    """Hero card highlighting the latest release (S02E02)."""
-    latest = UPLOADED_EPS[0]
-    code = latest["code"]
-    img = thumb(code)
-    yt_en = ep_url(code, "en")
-    yt_hi = ep_url(code, "hi")
-    ig_en = ig_url(code, "en")
+def spotlight(release, label, heading="h3"):
     return (
-        f'<article class="featured-card">'
-        f'<div class="pic"><img src="{img}" alt="Scene from {esc(latest["name"])}" loading="lazy" width="720" height="405">'
-        f'<span class="featured-badge"><span class="live-dot"></span>Latest Release · {code}</span></div>'
-        f'<div class="featured-body">'
-        f'<span class="kicker">Grow Slow · Season {latest["season"]} · {esc(latest["season_name"])}</span>'
-        f'<h3>{esc(latest["name"])}</h3>'
-        f'<p class="sub">Grow Slow {code}</p>'
-        f'<p>{esc(latest["desc"])}</p>'
-        f'<div class="links">'
-        f'<a class="btn btn-solid btn-sm" href="{yt_en}" target="_blank" rel="noopener">Watch in English on YouTube</a>'
-        f'<a class="btn btn-outline btn-sm" href="{yt_hi}" target="_blank" rel="noopener" lang="hi">हिंदी में देखें</a>'
-        f'<a class="btn btn-outline btn-sm" href="{ig_en}" target="_blank" rel="noopener">Instagram</a>'
-        f'</div>'
-        f'</div>'
-        f'</article>'
+        '<article class="featured-card portrait-feature">'
+        f'<div class="pic"><img src="{release["thumb"]}" alt="Scene from {esc(release["title"])}" width="540" height="960" loading="lazy"></div>'
+        f'<div class="featured-body"><span class="kicker">{esc(label)}</span>'
+        f'<{heading}>{esc(release["title"])}</{heading}><p>{esc(release["desc"])}</p>'
+        f'{watch_links(release["youtube"], release.get("instagram"), buttons=True)}</div></article>'
     )
 
 
@@ -359,7 +343,7 @@ def seasons_html():
                 f'<article class="ep" data-code="{code}">'
                 f'<img src="{thumb(code)}" alt="Scene from {esc(name)}" loading="lazy" width="720" height="405">'
                 f'<div class="body"><div class="code">{code}</div><h4>{esc(name)}</h4>'
-                f'<div class="when">Hindi and English editions</div>{ep_links(code)}</div></article>'
+                f'<div class="when">Hindi edition</div>{ep_links(code)}</div></article>'
             )
 
         note_html = ""
@@ -367,7 +351,7 @@ def seasons_html():
             note_html = (
                 '<div class="season-note">'
                 '<span class="live-dot"></span>'
-                '<span><b>Season 2 in progress:</b> Episodes 1 and 2 are released now in Hindi and English. '
+                '<span><b>Season 2 in progress:</b> Episodes 1 and 2 are available in Hindi. '
                 'Subsequent chapters will be released as production finishes.</span>'
                 '</div>'
             )
@@ -379,7 +363,7 @@ def seasons_html():
             f'<div class="film-body"><span class="kicker">Season {s["n"]} · {esc(s["theme"])}</span>'
             f'<h3>{esc(s["phrase"])}</h3><p class="sub">Grow Slow Season {s["n"]}: {esc(s["name"])}</p>'
             f'<p>{esc(s["blurb"])}</p>'
-            f'<div class="meta"><span class="chip">{len(s["eps"])} chapters uploaded</span><span class="chip">Hindi &amp; English</span></div>'
+            f'<div class="meta"><span class="chip">{len(s["eps"])} chapters uploaded</span><span class="chip">Hindi</span></div>'
             f'</div></div>'
             f'{note_html}'
             f'<div class="eps">{"".join(cards)}</div></section>'
@@ -388,74 +372,47 @@ def seasons_html():
     return "\n".join(tabs) + "\n" + "\n".join(panels)
 
 
+def series_episode(ep, kicker):
+    portrait = ep.get("portrait", False)
+    category = " portrait-feature" if portrait else ""
+    width, height = (540, 960) if portrait else (720, 405)
+    quote = ""
+    if ep.get("quote"):
+        quote = (
+            f'<div class="quote-box">{esc(ep["quote"])}'
+            f'<div class="quote-box-hi" lang="hi">{esc(ep["quote_hi"])}</div></div>'
+        )
+    return (
+        f'<article class="featured-card{category}"><div class="pic">'
+        f'<img src="{ep["thumb"]}" alt="Scene from {esc(ep["title"])}" loading="lazy" width="{width}" height="{height}">'
+        f'<span class="featured-badge">{ep["code"]}</span></div>'
+        f'<div class="featured-body"><span class="kicker">{esc(kicker)}</span>'
+        f'<h3>{esc(ep["title"])}</h3><p>{esc(ep["desc"])}</p>{quote}'
+        f'{watch_links(ep["yt_hi"], buttons=True, hindi=True)}</div></article>'
+    )
+
+
 def dhoni_section_html():
-    """Dedicated section for MS Dhoni series."""
-    ep = DHONI_SERIES["eps"][0]
+    cards = "\n".join(series_episode(ep, "MS Dhoni · Season 1") for ep in DHONI_SERIES["eps"])
     return f"""<section class="block" id="dhoni"><div class="wrap">
   <div class="section-head">
-    <span class="eyebrow">Champions Series · Season 1</span>
     <h2>{esc(DHONI_SERIES["title"])}</h2>
-    <p class="tagline-hi" lang="hi" style="margin-top:4px">{esc(DHONI_SERIES["tagline_hi"])}</p>
+    <p class="tagline-hi" lang="hi">{esc(DHONI_SERIES["tagline_hi"])}</p>
     <p>{esc(DHONI_SERIES["tagline"])}</p>
   </div>
-
-  <article class="featured-card">
-    <div class="pic">
-      <img src="{ep["thumb"]}" alt="Scene from {esc(ep["title"])}" loading="lazy" width="720" height="405">
-      <span class="featured-badge"><span class="live-dot"></span>Out Now · Season 1 Episode 1</span>
-    </div>
-    <div class="featured-body">
-      <span class="kicker">MS Dhoni · Season 1</span>
-      <h3>{esc(ep["title"])}</h3>
-      <p class="sub">MS Dhoni · {ep["code"]}</p>
-      <p>{esc(ep["desc"])}</p>
-      <div class="quote-box">
-        {esc(ep["quote"])}
-        <div class="quote-box-hi" lang="hi">{esc(ep["quote_hi"])}</div>
-      </div>
-      <div class="links">
-        <a class="btn btn-solid btn-sm" href="{ep["yt_en"]}" target="_blank" rel="noopener">Watch in English on YouTube</a>
-        <a class="btn btn-outline btn-sm" href="{ep["yt_hi"]}" target="_blank" rel="noopener" lang="hi">हिंदी में देखें (YouTube)</a>
-        <a class="btn btn-outline btn-sm" href="{DHONI_SERIES["playlist_hi"]}" target="_blank" rel="noopener">View Full Playlist</a>
-        <a class="btn btn-outline btn-sm" href="{IG_HI}" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </div>
-  </article>
+  {cards}
 </div></section>"""
 
 
 def builders_section_html():
-    """Dedicated section for Before the Spark series."""
     ep = BUILDERS_SERIES["eps"][0]
     return f"""<section class="block" id="builders"><div class="wrap">
   <div class="section-head">
-    <span class="eyebrow">Origin Stories · Season 1</span>
     <h2>{esc(BUILDERS_SERIES["title"])}</h2>
-    <p class="tagline-hi" lang="hi" style="margin-top:4px">{esc(BUILDERS_SERIES["tagline_hi"])}</p>
+    <p class="tagline-hi" lang="hi">{esc(BUILDERS_SERIES["tagline_hi"])}</p>
     <p>{esc(BUILDERS_SERIES["tagline"])}</p>
   </div>
-
-  <article class="featured-card">
-    <div class="pic">
-      <img src="{ep["thumb"]}" alt="Scene from {esc(ep["title"])}" loading="lazy" width="720" height="405">
-      <span class="featured-badge"><span class="live-dot"></span>Out Now · Season 1 Episode 1</span>
-    </div>
-    <div class="featured-body">
-      <span class="kicker">Before the Spark · {esc(ep["subject"])}</span>
-      <h3>{esc(ep["title"])}</h3>
-      <p class="sub">Before the Spark · {ep["code"]}</p>
-      <p>{esc(ep["desc"])}</p>
-      <div class="quote-box">
-        {esc(ep["quote"])}
-        <div class="quote-box-hi" lang="hi">{esc(ep["quote_hi"])}</div>
-      </div>
-      <div class="links">
-        <a class="btn btn-solid btn-sm" href="{ep["yt_en"]}" target="_blank" rel="noopener">Watch in English on YouTube</a>
-        <a class="btn btn-outline btn-sm" href="{ep["yt_hi"]}" target="_blank" rel="noopener" lang="hi">हिंदी में देखें (YouTube)</a>
-        <a class="btn btn-outline btn-sm" href="{IG_HI}" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </div>
-  </article>
+  {series_episode(ep, ep["subject"])}
 </div></section>"""
 
 
@@ -476,10 +433,10 @@ def founder_section_html():
       </div>
     </div>
     <div class="founder-body">
-      <p>{esc(FOUNDER_NAME)} is a software and applied-AI engineer with more than seven years of experience building and leading production systems. He started VertoByte to practise the same discipline in public: take each story from script to storyboard, pictures, narration and upload, in Hindi and English, and say plainly which parts are made with AI.</p>
+      <p>{esc(FOUNDER_NAME)} is a software and applied-AI engineer with more than seven years of experience building and leading production systems. He started VertoByte to practise the same discipline in public: take each story from script to storyboard, pictures, narration and upload, and say plainly which parts are made with AI.</p>
       <ul class="founder-facts">
         <li>Three original series: Grow Slow, MS Dhoni and Before the Spark.</li>
-        <li>Every story is produced natively in Hindi and English.</li>
+        <li>The channel publishes Hindi stories and wordless shorts.</li>
         <li>AI-generated pictures and narration are labelled on every upload.</li>
       </ul>
       <div class="founder-actions">
@@ -505,24 +462,22 @@ FAQ = [
     ),
     (
         "Where is the MS Dhoni series info and where can I watch it?",
-        "The MS Dhoni series focuses on the small, pivotal moments that made Mahendra Singh Dhoni a champion. Season 1 Episode 1 ('The Boy in Goal') "
-        "is streaming now in Hindi on Spark VertoByte and in English on Spark VertoByte English, with direct links right here on this page.",
+        "The MS Dhoni series focuses on the small, pivotal moments that made Mahendra Singh Dhoni a champion. 'The Boy in Goal' and 'The Ticket Examiner' are available in Hindi on Spark VertoByte.",
     ),
     (
         "When does a new video go out?",
         "Video upload times are not fixed to a rigid clock or calendar schedule. New episodes are released "
-        "as soon as animation and voiceovers are finished. Subscribe on YouTube and follow on Instagram to get notified "
+        "as each short is finished. Subscribe on YouTube and follow on Instagram to get notified "
         "instantly whenever a new story drops.",
     ),
     (
         "Do I have to watch in order?",
-        "No. Every story stands alone as an under-60-second reflection. However, stories within the same season build on each other, "
-        "so exploring playlists from Season 1 Episode 1 offers the richest experience.",
+        "Each short stands on its own. However, stories within the same season build on each other, "
+        "so you can follow the season from its first episode.",
     ),
     (
         "Which language should I watch?",
-        "All episodes are produced in both Hindi and English. Watch in Hindi on Spark VertoByte and in English "
-        "on Spark VertoByte English. Both versions feature native voiceovers and captions.",
+        "Narrated episodes on Spark VertoByte are in Hindi. Parathas in the Monsoon is wordless and uses rain and kitchen sounds.",
     ),
     (
         "Is it made with AI?",
@@ -538,32 +493,16 @@ def page():
             "YouTube",
             "Spark VertoByte",
             "@SparkVertoByte",
-            "Hindi Shorts for Grow Slow, MS Dhoni, and Before the Spark with Devanagari captions.",
+            "Hindi stories and wordless shorts.",
             YT_HI,
             YT_HI + "?sub_confirmation=1",
-        ),
-        (
-            "YouTube",
-            "Spark VertoByte English",
-            "@SparkVertoByteEnglish",
-            "English Shorts with English narration and captions across all series.",
-            YT_EN,
-            YT_EN + "?sub_confirmation=1",
         ),
         (
             "Instagram",
             "Spark VertoByte",
             "@SparkVertoByte",
-            "Hindi Reels released alongside the YouTube Shorts.",
+            "Reels from Spark VertoByte.",
             IG_HI,
-            None,
-        ),
-        (
-            "Instagram",
-            "Spark VertoByte English",
-            "@SparkVertoByteEnglish",
-            "English Reels released alongside the YouTube Shorts.",
-            IG_EN,
             None,
         ),
     ]
@@ -586,14 +525,14 @@ def page():
             "name": "VertoByte",
             "alternateName": "Spark VertoByte",
             "url": SITE_URL,
-            "description": "Independent creative-technology venture publishing short animated stories in Hindi and English.",
+            "description": "Independent creative-technology venture publishing animated Hindi stories and wordless shorts.",
             "founder": {
                 "@type": "Person",
                 "name": FOUNDER_NAME,
                 "jobTitle": "Founder",
                 "sameAs": [LINKEDIN_URL],
             },
-            "sameAs": [YT_HI, YT_EN, IG_HI, IG_EN],
+            "sameAs": [YT_HI, IG_HI],
         },
         ensure_ascii=False,
     ).replace("</", "<\\/")
@@ -603,11 +542,11 @@ def page():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Spark VertoByte | Grow Slow, MS Dhoni &amp; Before the Spark</title>
-<meta name="description" content="Little stories about big habits, pivotal moments, and quiet dedication. Watch Grow Slow, MS Dhoni, and Before the Spark in Hindi and English.">
+<title>Spark VertoByte | Animated Stories and Wordless Shorts</title>
+<meta name="description" content="Watch Grow Slow, MS Dhoni, Before the Spark, and Parathas in the Monsoon from Spark VertoByte.">
 <meta name="theme-color" content="#163a2d">
 <meta property="og:title" content="Spark VertoByte | Little stories about big habits">
-<meta property="og:description" content="Short animated stories: Grow Slow, MS Dhoni, and Before the Spark in Hindi and English.">
+<meta property="og:description" content="Animated Hindi stories and wordless shorts from Spark VertoByte.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Spark VertoByte">
 <meta property="og:url" content="{SITE_URL}">
@@ -627,30 +566,34 @@ def page():
 <header class="site-header"><div class="wrap">
   <a class="brand" href="#top" aria-label="Spark VertoByte, home">{logo_picture()}</a>
   <nav class="nav" aria-label="Sections">
-    <a href="#grow-slow">Grow Slow</a><a href="#dhoni">MS Dhoni</a><a href="#builders">Before the Spark</a><a href="#about">About</a><a href="#founder">Founder</a><a href="#watch">Where to watch</a><a href="#faq">FAQ</a>
+    <a href="#parathas">Parathas in the Monsoon</a><a href="#grow-slow">Grow Slow</a><a href="#dhoni">MS Dhoni</a><a href="#builders">Before the Spark</a><a href="#about">About</a><a href="#founder">Founder</a><a href="#watch">Where to watch</a><a href="#faq">FAQ</a>
   </nav>
 </div></header>
 
 <main id="top">
 <section class="hero"><div class="wrap">
-  <span class="eyebrow">A VertoByte Story Universe · Hindi and English</span>
+  <span class="eyebrow">Stories from VertoByte</span>
   <h1>Spark VertoByte</h1>
   <p class="tagline">Little stories about big habits, pivotal moments, and quiet dedication.</p>
   <p class="tagline-hi" lang="hi">बड़ी आदतों की छोटी कहानियाँ, एक मिनट से कम में।</p>
-  <p class="lede">Short animated stories across three distinct series: <b>Grow Slow</b> (patience and compounding habits), <b>MS Dhoni</b> (the small moments that made a champion), and <b>Before the Spark</b> (how iconic innovators began). Watch all uploaded stories in Hindi and English.</p>
+  <p class="lede">Short animated stories from <b>Grow Slow</b> (patience and compounding habits), <b>MS Dhoni</b> (the small moments that made a champion), and <b>Before the Spark</b> (how iconic innovators began). Watch Hindi stories and wordless shorts on Spark VertoByte.</p>
   <div class="cta-row">
-    <a class="btn btn-primary" href="#grow-slow">Grow Slow Series</a>
+    <a class="btn btn-primary" href="#parathas">Watch Parathas in the Monsoon</a>
+    <a class="btn btn-ghost" href="#grow-slow">Grow Slow Series</a>
     <a class="btn btn-ghost" href="#dhoni">MS Dhoni Series</a>
     <a class="btn btn-ghost" href="#builders">Before the Spark</a>
   </div>
 </div></section>
 
 <div class="stats"><div class="wrap"><ul>
-  <li><b>12</b><span>stories uploaded across 3 series</span></li>
-  <li><b>3</b><span>series: Grow Slow, MS Dhoni &amp; Before the Spark</span></li>
-  <li><b>2</b><span>languages: Hindi and English for every story</span></li>
-  <li><b>&lt; 60s</b><span>bite-sized animated format for reflection</span></li>
+  <li><b>{len(UPLOADED_EPS) + len(DHONI_SERIES["eps"]) + len(BUILDERS_SERIES["eps"]) + 1}</b><span>released stories</span></li>
+  <li><b>3</b><span>story series</span></li>
+  <li><b>2</b><span>platforms: YouTube and Instagram</span></li>
 </ul></div></div>
+
+<section class="block" id="parathas" aria-label="Latest release"><div class="wrap">
+  {spotlight(MONSOON, "Latest release", "h2")}
+</div></section>
 
 <!-- GROW SLOW SECTION -->
 <section class="block" id="grow-slow"><div class="wrap">
@@ -660,8 +603,6 @@ def page():
     <p>Upload times are flexible; new stories arrive as each chapter is completed. Browse all 10 uploaded Grow Slow episodes below or filter by season.</p>
   </div>
 
-  {featured_release_html()}
-
   <div class="filter-bar" role="toolbar" aria-label="Filter Grow Slow episodes by season">
     <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All Episodes (10)</button>
     <button type="button" class="filter-pill" data-filter="2" aria-pressed="false">Season 2 (2)</button>
@@ -669,6 +610,7 @@ def page():
   </div>
 
   {episodes_grid_html()}
+  {spotlight(GROW_SLOW_PROMO, "Grow Slow preview")}
 </div></section>
 
 <section class="block" id="seasons"><div class="wrap">
@@ -693,9 +635,9 @@ def page():
     <p>Created for thoughtful viewing wherever you are.</p>
   </div>
   <div class="glance">
-    <article class="card"><div class="icon">{ICONS["shorts"]}</div><h3>Under 60 seconds</h3><p>Every story stands alone in under a minute on YouTube Shorts and Instagram Reels, crafted for quick daily reflection.</p></article>
-    <article class="card"><div class="icon">{ICONS["forest"]}</div><h3>Two native languages</h3><p>Complete dual productions in Hindi and English, with tailored voice narration and native typography.</p></article>
-    <article class="card"><div class="icon">{ICONS["trophy"]}</div><h3>Timeless takeaways</h3><p>From quiet patience in Grow Slow to champion mindset in MS Dhoni, every video delivers one memorable lesson.</p></article>
+    <article class="card"><div class="icon">{ICONS["shorts"]}</div><h3>Short stories</h3><p>Each episode stands on its own on YouTube Shorts and Instagram Reels.</p></article>
+    <article class="card"><div class="icon">{ICONS["forest"]}</div><h3>Hindi and wordless</h3><p>Follow the narrated stories in Hindi or listen to the rain and kitchen sounds in Parathas in the Monsoon.</p></article>
+    <article class="card"><div class="icon">{ICONS["trophy"]}</div><h3>Timeless takeaways</h3><p>From quiet patience in Grow Slow to champion mindset in MS Dhoni, the narrated series follow a moment that changes what a character does next.</p></article>
   </div>
 </div></section>
 
@@ -704,14 +646,14 @@ def page():
 <section class="block" id="watch"><div class="wrap">
   <div class="section-head">
     <span class="eyebrow">Where to watch</span>
-    <h2>Two channels, two languages</h2>
+    <h2>Watch Spark VertoByte</h2>
     <p>Watch and subscribe on YouTube, or follow on Instagram for instant notifications when new stories drop.</p>
   </div>
   <div class="channels">{watch_html}</div>
 </div></section>
 
 <section class="block" id="faq"><div class="wrap">
-  <div class="ai-note">{ICONS["ai"]}<p><b>Made with AI, and we say so.</b> The pictures and the narration in our series are generated with AI tools, and every upload carries the AI-generated label. This is an independent channel not affiliated with any featured individuals.</p></div>
+  <div class="ai-note">{ICONS["ai"]}<p><b>Made with AI, and we say so.</b> Our illustrations and narrated audio are made with AI tools. We label uploads on YouTube and Instagram. This is an independent channel not affiliated with any featured individuals.</p></div>
   <div class="section-head" style="margin-top:56px"><span class="eyebrow">Questions</span><h2>Good to know</h2></div>
   <div class="faq">{faq_html}</div>
 </div></section>
@@ -720,10 +662,10 @@ def page():
 <footer class="site-footer"><div class="wrap">
   <div>{logo_picture().replace('<picture>', '<picture>').replace('final.svg', 'final-dark.svg')}<p>Spark VertoByte by VertoByte: Grow Slow, MS Dhoni, and Before the Spark. Little stories about big habits.</p></div>
   <ul>
-    <li>YouTube · <a href="{YT_HI}" target="_blank" rel="noopener">@SparkVertoByte</a> · <a href="{YT_EN}" target="_blank" rel="noopener">@SparkVertoByteEnglish</a></li>
-    <li>Instagram · <a href="{IG_HI}" target="_blank" rel="noopener">@SparkVertoByte</a> · <a href="{IG_EN}" target="_blank" rel="noopener">@SparkVertoByteEnglish</a></li>
+    <li>YouTube · <a href="{YT_HI}" target="_blank" rel="noopener">@SparkVertoByte</a></li>
+    <li>Instagram · <a href="{IG_HI}" target="_blank" rel="noopener">@SparkVertoByte</a></li>
     <li>Founder · <a href="{LINKEDIN_URL}" target="_blank" rel="noopener me">{esc(FOUNDER_NAME)} on LinkedIn</a></li>
-    <li>Hindi and English · AI-generated pictures and voice</li>
+    <li>Hindi stories and wordless shorts</li>
   </ul>
   <p class="legal">© 2026 VertoByte. All uploaded episodes displayed. Upload times are flexible as new stories are completed.</p>
 </div></footer>
