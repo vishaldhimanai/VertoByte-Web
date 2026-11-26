@@ -30,7 +30,7 @@ GitHub Pages (*Settings → Pages → `production` → `/docs`*) also serves the
 
 Video upload times are flexible throughout the day and episodes release as they are finished, rather than adhering to rigid clock times or speculative upcoming schedules. The site highlights all confirmed uploaded videos across Spark VertoByte's series:
 
-- **Grow Slow:** 10 uploaded episodes (Season 1 complete with 8 episodes; Season 2 in progress with 2 episodes).
+- **Grow Slow:** 11 uploaded episodes (Season 1 complete with 8 episodes; Season 2 in progress with 3 episodes).
 - **MS Dhoni: Moments That Made a Champion:** Season 1 episodes *The Boy in Goal* and *The Ticket Examiner* are available in Hindi.
 - **Before the Spark:** Season 1 Episode 1 (*The Best Dishwasher*) is available in Hindi.
 - **Parathas in the Monsoon** is a wordless short available on both platforms.

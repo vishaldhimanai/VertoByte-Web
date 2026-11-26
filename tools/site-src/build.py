@@ -62,10 +62,22 @@ EPISODE_LINKS = {
     "S02E02": {
         "hi": "https://www.youtube.com/shorts/WU5ttlX2NdQ",
     },
+    "S02E03": {
+        "hi": "https://www.youtube.com/shorts/dAFyByNAKa8",
+        "ig_hi": "https://www.instagram.com/reel/DgMoMk6iEoD/",
+    },
 }
 
 # Grow Slow uploaded episodes in reverse chronological order
 UPLOADED_EPS = [
+    dict(
+        code="S02E03",
+        season=2,
+        ep=3,
+        name="The Bees",
+        season_name="When the Fruit Comes",
+        desc="Accepting criticism: not everything that stings is against you.",
+    ),
     dict(
         code="S02E02",
         season=2,
@@ -172,12 +184,13 @@ SEASONS = [
         n=2,
         name="When the Fruit Comes",
         theme="Humility",
-        status="In Progress (2 Episodes Released)",
+        status="In Progress (3 Episodes Released)",
         phrase="The Tree Finally Bloomed. He Barely Looked.",
         blurb="Stories about what comes after the wait: the first flowers, the first fruit and staying grounded. Season 2 is currently releasing.",
         eps=[
             "The Pumpkin Next Door",
             "Count the Blossoms",
+            "The Bees",
         ],
     ),
 ]
@@ -296,8 +309,28 @@ def spotlight(release, label, heading="h3"):
     )
 
 
+def featured_release_html():
+    """Hero card highlighting the latest Grow Slow release."""
+    latest = UPLOADED_EPS[0]
+    code = latest["code"]
+    links = EPISODE_LINKS[code]
+    return (
+        '<article class="featured-card">'
+        f'<div class="pic"><img src="{thumb(code)}" alt="Scene from {esc(latest["name"])}" loading="lazy" width="720" height="406">'
+        f'<span class="featured-badge"><span class="live-dot"></span>Latest Release · {code}</span></div>'
+        '<div class="featured-body">'
+        f'<span class="kicker">Grow Slow · Season {latest["season"]} · {esc(latest["season_name"])}</span>'
+        f'<h3>{esc(latest["name"])}</h3>'
+        f'<p class="sub">Grow Slow {code}</p>'
+        f'<p>{esc(latest["desc"])}</p>'
+        f'{watch_links(links["hi"], links.get("ig_hi"), buttons=True, hindi=True)}'
+        '</div>'
+        '</article>'
+    )
+
+
 def episodes_grid_html():
-    """Grid of all 10 uploaded Grow Slow episodes in reverse chronological order."""
+    """Grid of all uploaded Grow Slow episodes in reverse chronological order."""
     cards = []
     for item in UPLOADED_EPS:
         code = item["code"]
@@ -351,7 +384,7 @@ def seasons_html():
             note_html = (
                 '<div class="season-note">'
                 '<span class="live-dot"></span>'
-                '<span><b>Season 2 in progress:</b> Episodes 1 and 2 are available in Hindi. '
+                '<span><b>Season 2 in progress:</b> Episodes 1 to 3 are available in Hindi. '
                 'Subsequent chapters will be released as production finishes.</span>'
                 '</div>'
             )
@@ -591,8 +624,8 @@ def page():
   <li><b>2</b><span>platforms: YouTube and Instagram</span></li>
 </ul></div></div>
 
-<section class="block" id="parathas" aria-label="Latest release"><div class="wrap">
-  {spotlight(MONSOON, "Latest release", "h2")}
+<section class="block" id="parathas" aria-label="Wordless short"><div class="wrap">
+  {spotlight(MONSOON, "Wordless short", "h2")}
 </div></section>
 
 <!-- GROW SLOW SECTION -->
@@ -600,13 +633,15 @@ def page():
   <div class="section-head">
     <span class="eyebrow">Series 1 · The Story So Far</span>
     <h2>Grow Slow: Released Episodes</h2>
-    <p>Upload times are flexible; new stories arrive as each chapter is completed. Browse all 10 uploaded Grow Slow episodes below or filter by season.</p>
+    <p>Upload times are flexible; new stories arrive as each chapter is completed. Browse all {len(UPLOADED_EPS)} uploaded Grow Slow episodes below or filter by season.</p>
   </div>
 
+  {featured_release_html()}
+
   <div class="filter-bar" role="toolbar" aria-label="Filter Grow Slow episodes by season">
-    <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All Episodes (10)</button>
-    <button type="button" class="filter-pill" data-filter="2" aria-pressed="false">Season 2 (2)</button>
-    <button type="button" class="filter-pill" data-filter="1" aria-pressed="false">Season 1 (8)</button>
+    <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All Episodes ({len(UPLOADED_EPS)})</button>
+    <button type="button" class="filter-pill" data-filter="2" aria-pressed="false">Season 2 ({sum(1 for e in UPLOADED_EPS if e["season"] == 2)})</button>
+    <button type="button" class="filter-pill" data-filter="1" aria-pressed="false">Season 1 ({sum(1 for e in UPLOADED_EPS if e["season"] == 1)})</button>
   </div>
 
   {episodes_grid_html()}
